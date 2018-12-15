@@ -1,5 +1,5 @@
 // FONTS
-@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 // OTHER SCSS FILES
 @import './mixins.scss';
 @import './home.scss';
@@ -17,11 +17,26 @@ body {
     height: 100%;
     min-height: 100vh;
     width: 100%;
+    background-color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+
+    .open-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 1em;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+    }
 
     .section {
         height: 100%;
         min-height: 100vh;
-        width: 100vw;
+        width: 100%;
+        min-width: 100vw;
         @include flexCol;
     }
 }

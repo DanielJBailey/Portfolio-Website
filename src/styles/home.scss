@@ -1,8 +1,23 @@
+
+
 #home {
-    background-color: red;
     align-items: flex-start;
+    justify-content: flex-end;
+    background-color: #FFF;
+    padding: 1em;
     .name {
-        font-size: 48px;
+        font-size: 4em;
+        letter-spacing: -2px;
         font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        margin-left: -3px;
+        line-height: 1.0;
+        color: #373F51;
+    }
+    .title {
+        font-size: 1.25em;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        color: #373F51;
     }
 }
