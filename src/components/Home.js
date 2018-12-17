@@ -1,25 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import Menu from './Menu';
 
-const Home = () => (
-    <Container>
-        <Menu>Menu</Menu>
-        <Line></Line>
-        <Title>Software Engineer | SLC, Utah</Title>
-        <Name>Daniel Bailey</Name>
-    </Container>
-)
+const Home = () => {
+
+    return (
+        <Container>
+            <MenuOpen>
+                <span className="open"></span>
+                <span className="open"></span>
+                <span className="open"></span>
+            </MenuOpen>
+            <Menu />
+            <Name>Daniel Bailey</Name>
+            <Title>Software Engineer | SLC, Utah</Title>
+        </Container>
+    )
+}
+
+
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-start;
     height: 100%;
     min-height: 100vh;
     width: 100%;
     padding: 1em;
     position: relative;
+    color: #1B1B1E;
+    overflow-y: scroll;
 `;
 
 const Name = styled.h1`
@@ -28,36 +40,50 @@ const Name = styled.h1`
     margin-left: -4px;
     line-height: 1.0;
     font-family: 'Catamaran', sans-serif;
+    @media (max-width: 320px) {
+        font-size: 3.5em;
+    }
 `;
 
 const Title = styled.h1`
     line-height: 1.0;
     font-family: 'Catamaran', sans-serif;
     font-size: 1.25em;
-    margin-top: 5px;
+    margin: 5px 0;
+    @media (max-width: 320px) {
+        font-size: 1.1em;
+    }
 `;
 
-const Menu = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+const MenuOpen = styled.div`
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
     margin: 1em;
-    font-weight: 400;
-    font-family: 'Catamaran', sans-serif;
-    font-size: 1.25em;
+    z-index: 99;
+    span {
+        width: 50px;
+        height: 3px;
+        border-radius: 3px;
+        background-color: #fff;
+        display: block;
+        content: "";
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+    span.open {
+        &:first-child {
+            transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+            display: none;
+        }
+        &:last-child {
+            transform: rotate(-45deg) translateY(-9px) translateX(10px);
+        }
+    }
 `;
 
-const Line = styled.hr`
-    width: 50%;
-    height: 10px;
-    background-color: rgba(0,0,0,0.7);
-    margin: 10px 0;
-    border: none;
-    outline: none;
-`;
 
 export default Home;
