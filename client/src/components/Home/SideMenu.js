@@ -1,15 +1,26 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const SideMenu = ({toggleMenu, open}) => (
     <MenuContainer>
         <Overlay onClick={toggleMenu}/>
         <MenuList>
-            <ListItem open={open}>Home</ListItem>
-            <ListItem open={open}>About</ListItem>
-            <ListItem open={open}>Work</ListItem>
-            <ListItem open={open}>Experience</ListItem>
-            <ListItem open={open}>Contact</ListItem>
+            <Link to="/">
+                <ListItem open={open}>Home</ListItem>
+            </Link>
+            <Link to="/about">
+                <ListItem open={open}>About</ListItem>
+            </Link>
+            <Link to="/work">
+                <ListItem open={open}>Work</ListItem>
+            </Link>
+            <Link to="/experience">
+                <ListItem open={open}>Experience</ListItem>
+            </Link>
+            <Link to="/contact">
+                <ListItem open={open}>Contact</ListItem>
+            </Link>
         </MenuList>
     </MenuContainer>
 )
