@@ -20,8 +20,12 @@ const fadeIn = keyframes`
 `;
 
 const slideIn = keyframes`
-    from {margin-left: -100%}
-    to {margin-left: 0}
+    0% {
+        margin-left: -100vw;
+    }
+    100% {
+        margin-left: 0;
+    }
 `;
 
 const MenuContainer = styled.div`
@@ -54,7 +58,6 @@ const MenuList = styled.ul`
 
 const ListItem = styled.li`
     width: 100%;
-    margin-left: ${props=> props.open ? "0" : "-100%"};
     text-align: center;
     cursor: pointer;
     background-color: #222f3e;
@@ -69,7 +72,10 @@ const ListItem = styled.li`
     border-bottom-right-radius: 5px;
     animation-name: ${slideIn};
     animation-duration: 0.5s;
-    animation-delay: 1s;
+    transition: 0.5s;
+    &:hover {
+        width: 120%;
+    }
 `;
 
 export default SideMenu;
