@@ -5,16 +5,23 @@ import SideMenu from './SideMenu';
 class Home extends React.Component {
     state={menuOpen: false};
 
-    toggleMenu = () => this.setState(state => ({menuOpen: !state.menuOpen}))
+    toggleMenu = () => {
+        this.setState(state => ({menuOpen: !state.menuOpen}), () => {
+            // console.log(document.getElementsByClassName('menu-bar'))
+        })
+    }
 
     render() {
         let {menuOpen} = this.state;
+        let className = menuOpen ? "menu-bar open" : "menu-bar";
+        let firstChildTransitions = ["translateY(10px)", "rotate(225deg)"];
+        let lastChildTransitions = ["translateY(-10px)", "rotate(-225deg)"];
         return(
             <HomeContainer>
                 <OpenMenu onClick={this.toggleMenu}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span className={className} animations={firstChildTransitions}></span>
+                    <span className={className}></span>
+                    <span className={className} animations={lastChildTransitions}></span>
                 </OpenMenu>
                 {menuOpen ? <SideMenu toggleMenu={this.toggleMenu} open={menuOpen}/> : null}
                 <Name>Daniel Bailey</Name>
@@ -30,14 +37,29 @@ const OpenMenu = styled.div`
     right: 0;
     margin: 1em;
     z-index: 9999;
-
-    span {
+    .menu-bar {
         display: block;
-        background-color: #222f3e;
         width: 50px;
         height: 2px;
         margin-top: 8px;
         border-radius: 2px;
+        background-color: black;
+        transition: 0.75s;
+    }
+    .menu-bar.open {
+        &:first-child {
+            transform: ${props => props.children[0].props.animations.map(animation => {
+                return animation
+            })}
+        }
+        &:nth-child(2) {
+            opacity: 0;
+        }
+        &:last-child {
+            transform: ${props => props.children[2].props.animations.map( animation => {
+                return animation
+            })}
+        }
     }
 `;
 
