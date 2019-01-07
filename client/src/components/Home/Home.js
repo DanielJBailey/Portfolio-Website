@@ -6,9 +6,7 @@ class Home extends React.Component {
     state={menuOpen: false};
 
     toggleMenu = () => {
-        this.setState(state => ({menuOpen: !state.menuOpen}), () => {
-            // console.log(document.getElementsByClassName('menu-bar'))
-        })
+        this.setState(state => ({menuOpen: !state.menuOpen}))
     }
 
     render() {
@@ -36,6 +34,8 @@ const OpenMenu = styled.div`
     top: 0;
     right: 0;
     margin: 1em;
+    padding: 1em;
+    cursor: pointer;
     z-index: 9999;
     .menu-bar {
         display: block;
@@ -92,7 +92,7 @@ const HomeContainer = styled.div`
     height: 100%;
     min-height: 100vh;
     width: 100%;
-    padding: 2em 1em;
+    padding: 2em;
 `;
 
 export default Home;
