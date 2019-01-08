@@ -30,6 +30,15 @@ const Home = () => (
   </HomeContainer>
 );
 
+const fadeIn = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+`;
+
 const SlideDown = keyframes`
   from {
     margin-top: -220px;
@@ -97,6 +106,7 @@ const HomeContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   padding: 2em;
+  animation: ${fadeIn} 1s linear;
   @media (max-width: 325px) {
     padding: 1em;
   }

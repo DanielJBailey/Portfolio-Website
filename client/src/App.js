@@ -20,12 +20,13 @@ class App extends React.Component {
     let { menuOpen } = this.state;
     let className = menuOpen ? "menu-bar open" : "menu-bar";
     let firstChildTransitions = ["translateY(10px)", "rotate(225deg)"];
+    let middleChildTransitions = ["rotateY(90deg)"]
     let lastChildTransitions = ["translateY(-10px)", "rotate(-225deg)"];
     return (
       <>
         <OpenMenu onClick={this.toggleMenu}>
           <span className={className} animations={firstChildTransitions} />
-          <span className={className} />
+          <span className={className} animations={middleChildTransitions} />
           <span className={className} animations={lastChildTransitions} />
         </OpenMenu>
         {menuOpen ? (
@@ -72,6 +73,11 @@ const OpenMenu = styled.div`
         })};
     }
     &:nth-child(2) {
+      transform-style: preserve-3d;
+      transform: ${props =>
+        props.children[1].props.animations.map(animation => {
+          return animation;
+        })};
       opacity: 0;
     }
     &:last-child {
