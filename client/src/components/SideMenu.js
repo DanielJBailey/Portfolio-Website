@@ -70,6 +70,7 @@ const MenuList = styled.ul`
 
 const ListItem = styled.li`
   width: 100%;
+  max-width: 250px;
   text-align: center;
   cursor: pointer;
   background-color: #222f3e;
