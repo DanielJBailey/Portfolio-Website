@@ -40,7 +40,7 @@ const slideIn = keyframes`
 `;
 
 const MenuContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -49,6 +49,7 @@ const MenuContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  z-index: 99;
 `;
 
 const Overlay = styled.div`
@@ -59,7 +60,7 @@ const Overlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 99;
 `;
 
 const MenuList = styled.ul`

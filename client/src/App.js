@@ -45,7 +45,7 @@ class App extends React.Component {
 }
 
 const OpenMenu = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   margin: 1em;

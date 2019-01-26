@@ -23,7 +23,6 @@ const WorkContainer = styled.div`
     height: 100%;
     min-height: 100vh;
     width: 100vw;
-    margin-top: 100px;
 `;
 
 const Project = styled.div`
@@ -31,6 +30,7 @@ const Project = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #222f3e;
 `;
 
 export default Work;

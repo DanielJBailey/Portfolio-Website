@@ -106,6 +106,7 @@ const HomeContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   padding: 2em;
+  z-index: 1;
   animation: ${fadeIn} 1s linear;
   @media (max-width: 325px) {
     padding: 1em;
