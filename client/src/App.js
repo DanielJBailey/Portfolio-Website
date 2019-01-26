@@ -4,7 +4,6 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Work from "./components/Work/Work";
 import Experience from "./components/Experience/Experience";
-import Contact from "./components/Contact/Contact";
 import SideMenu from "./components/SideMenu";
 import styled from "styled-components";
 import "./App.scss";
@@ -37,7 +36,6 @@ class App extends React.Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/work" component={Work} />
           <Route exact path="/experience" component={Experience} />
-          <Route exact path="/contact" component={Contact} />
         </Switch>
       </>
     );

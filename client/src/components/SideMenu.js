@@ -18,9 +18,6 @@ const SideMenu = ({ toggleMenu, open }) => (
       <Link to="/experience" onClick={toggleMenu}>
         <ListItem open={open}>Experience</ListItem>
       </Link>
-      <Link to="/contact" onClick={toggleMenu}>
-        <ListItem open={open}>Contact</ListItem>
-      </Link>
     </MenuList>
   </MenuContainer>
 );

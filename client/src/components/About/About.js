@@ -71,7 +71,7 @@ const AboutContainer = styled.div`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   justify-content: center;
+   justify-content: flex-start;
    height: 100%;
    min-height: 100vh;
    width: 100%;
@@ -79,7 +79,6 @@ const AboutContainer = styled.div`
    max-width: 600px;
    width: 100%;
    padding: 100px 2em;
-   margin: 0 auto;
 
    h1 {
       &:before {
