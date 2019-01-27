@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import Fade from 'react-reveal/Fade';
 
 const Home = () => (
   <HomeContainer>
@@ -33,8 +34,11 @@ const Home = () => (
         </Icon>
       </a>  
     </SocialMedia>
-    <Name>Daniel Bailey</Name>
-    <Title>Software Engineer | Salt Lake City, UT</Title>
+    <Fade left duration={500}>
+      <Name>Daniel Bailey</Name>
+      <Title>Software Engineer | Salt Lake City, UT</Title>
+    </Fade>
+    
   </HomeContainer>
 );
 

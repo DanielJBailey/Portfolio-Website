@@ -9,8 +9,6 @@ import {
 } from "./ProjectImages";
 
 const ImageModal = ({ index, toggle, images }) => {
-   console.log(dev_tracker_images);
-   console.log(images);
 
    let image_set;
 
@@ -33,8 +31,6 @@ const ImageModal = ({ index, toggle, images }) => {
       default:
          break;
    }
-
-   console.log(image_set);
 
    return (
       <ModalContainer>
@@ -82,7 +78,7 @@ const ModalContainer = styled.div`
    position: fixed;
    top: 0;
    left: 0;
-   background-color: rgba(0, 0, 0, 1);
+   background-color: rgba(0, 0, 0, 0.9);
    height: 100vh;
    width: 100vw;
    display: flex;
