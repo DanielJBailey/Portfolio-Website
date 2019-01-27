@@ -1,25 +1,59 @@
 import React from "react";
-import styled, {keyframes} from "styled-components";
-import { dev_tracker_images,jeopardy_images } from "./ProjectImages";
+import styled, { keyframes } from "styled-components";
+import {
+   dev_tracker_images,
+   jeopardy_images,
+   trollo_images,
+   blog_images,
+   sticky_notes_images
+} from "./ProjectImages";
 
-const ImageModal = ({index, toggle}) => {
-   
+const ImageModal = ({ index, toggle, images }) => {
+   console.log(dev_tracker_images);
+   console.log(images);
+
+   let image_set;
+
+   switch (images) {
+      case "dev_tracker_images":
+         image_set = dev_tracker_images;
+         break;
+      case "jeopardy":
+         image_set = jeopardy_images;
+         break;
+      case "trollo":
+         image_set = trollo_images;
+         break;
+      case "blog_images":
+         image_set = blog_images;
+         break;
+      case "sticky_notes":
+         image_set = sticky_notes_images;
+         break;
+      default:
+         break;
+   }
+
+   console.log(image_set);
+
    return (
       <ModalContainer>
-         {/* <CloseModal onClick={toggle}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"/></svg>
+         <CloseModal onClick={toggle}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+               <path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" />
+            </svg>
          </CloseModal>
-         <Image src={project_images[index].src}/> */}
+         <Image src={image_set[index].src} />
       </ModalContainer>
-   )
-}
+   );
+};
 
 const CloseModal = styled.div`
    position: absolute;
    top: 0;
    right: 0;
    padding: 1em;
-   background-color: rgba(0,0,0,0.4);
+   background-color: rgba(0, 0, 0, 0.4);
    cursor: pointer;
 
    svg {
@@ -41,14 +75,14 @@ const fadeIn = keyframes`
 const Image = styled.img`
    max-width: 100%;
    border-radius: 10px;
-   box-shadow: 3px 4px 8px rgba(0,0,0,0.4);
+   box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.4);
 `;
 
 const ModalContainer = styled.div`
    position: fixed;
    top: 0;
    left: 0;
-   background-color: rgba(0,0,0,1);
+   background-color: rgba(0, 0, 0, 1);
    height: 100vh;
    width: 100vw;
    display: flex;
@@ -58,10 +92,9 @@ const ModalContainer = styled.div`
    padding: 100px;
    z-index: 9999;
    animation: ${fadeIn} 0.3s linear;
-   @media(max-width: 768px) {
+   @media (max-width: 768px) {
       padding: 10px;
    }
 `;
-
 
 export default ImageModal;

@@ -13,7 +13,7 @@ import board_edit from '../../assets/board_edit.png';
 import add_board from '../../assets/add_board.png';
 import blog_home from '../../assets/blog_home.png';
 import blog_show from '../../assets/blog_show.png';
-import blog_new from '../../assets/blog_show.png';
+import blog_new from '../../assets/blog_new.png';
 import blog_body from '../../assets/blog_body.png';
 import sticky_notes from '../../assets/sticky_notes.png';
 import edit_sticky_note from '../../assets/edit_sticky_note.png';

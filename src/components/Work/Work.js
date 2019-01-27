@@ -1,18 +1,26 @@
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
-import { jeopardy_images, dev_tracker_images, trollo_images, blog_images, sticky_notes_images } from "./ProjectImages";
+import {
+   jeopardy_images,
+   dev_tracker_images,
+   trollo_images,
+   blog_images,
+   sticky_notes_images
+} from "./ProjectImages";
 import ImageModal from "./ImageModal";
 
 class Work extends Component {
    state = {
       showModal: false,
-      currentImage: null
+      currentImage: null,
+      images: ""
    };
 
-   toggleModal = index =>
+   toggleModal = (index, image_set) =>
       this.setState({
          showModal: !this.state.showModal,
-         currentImage: index
+         currentImage: index,
+         images: image_set
       });
 
    closeModal = e => {
@@ -21,11 +29,15 @@ class Work extends Component {
    };
 
    render() {
-      let { showModal, currentImage } = this.state;
+      let { showModal, currentImage, images } = this.state;
       return (
          <>
             {showModal ? (
-               <ImageModal index={currentImage} toggle={this.closeModal} />
+               <ImageModal
+                  index={currentImage}
+                  images={images}
+                  toggle={this.closeModal}
+               />
             ) : null}
             <WorkContainer>
                <h1>My Current Work</h1>
@@ -115,12 +127,13 @@ class Work extends Component {
                      </Features>
                      <ProjectImages>
                         {dev_tracker_images.map((image, i) => {
+                           let images = "dev_tracker_images";
                            return (
                               <Img
                                  key={i}
                                  src={image.src}
                                  alt={image.alt}
-                                 onClick={() => this.toggleModal(i)}
+                                 onClick={() => this.toggleModal(i, images)}
                               />
                            );
                         })}
@@ -131,7 +144,14 @@ class Work extends Component {
                      <Hr />
                      <ProjectDescription>
                         The classic jeopard game built entirely in React
-                        combined with a Rails backend. I had an overall goal of replicating the original jeopardy experience as closely as possible, such as allowing users to type in answers or select questions from a dynamic game board. Also, I built an admin dashboard which can be accessed at "/admin". The admin dashboard allows users to edit, create, delete, categories and questions to customize their jeopardy experience. 
+                        combined with a Rails backend. I had an overall goal of
+                        replicating the original jeopardy experience as closely
+                        as possible, such as allowing users to type in answers
+                        or select questions from a dynamic game board. Also, I
+                        built an admin dashboard which can be accessed at
+                        "/admin". The admin dashboard allows users to edit,
+                        create, delete, categories and questions to customize
+                        their jeopardy experience.
                      </ProjectDescription>
                      <ProjectTech>
                         <Tech>React</Tech>
@@ -153,12 +173,13 @@ class Work extends Component {
                      </ProjectLinks>
                      <ProjectImages>
                         {jeopardy_images.map((image, i) => {
+                           let images = "jeopardy";
                            return (
                               <Img
                                  key={i}
                                  src={image.src}
                                  alt={image.alt}
-                                 onClick={() => this.toggleModal(i)}
+                                 onClick={() => this.toggleModal(i, images)}
                               />
                            );
                         })}
@@ -168,7 +189,11 @@ class Work extends Component {
                      <ProjectTitle>Trollo - A Trello Clone</ProjectTitle>
                      <Hr />
                      <ProjectDescription>
-                        Trollo is a rails application built using rails views with the goal of replicating the user experience of Trello, an online task management software. I wanted to reproduce the UX of Trello, entirely in rails without any React or front end frameworks.  
+                        Trollo is a rails application built using rails views
+                        with the goal of replicating the user experience of
+                        Trello, an online task management software. I wanted to
+                        reproduce the UX of Trello, entirely in rails without
+                        any React or front end frameworks.
                      </ProjectDescription>
                      <ProjectTech>
                         <Tech>Ruby on Rails</Tech>
@@ -187,12 +212,13 @@ class Work extends Component {
                      </ProjectLinks>
                      <ProjectImages>
                         {trollo_images.map((image, i) => {
+                           let images = "trollo";
                            return (
                               <Img
                                  key={i}
                                  src={image.src}
                                  alt={image.alt}
-                                 onClick={() => this.toggleModal(i)}
+                                 onClick={() => this.toggleModal(i, images)}
                               />
                            );
                         })}
@@ -202,7 +228,12 @@ class Work extends Component {
                      <ProjectTitle>Blog - My Medium Clone</ProjectTitle>
                      <Hr />
                      <ProjectDescription>
-                        I created a Medium clone using React on a Rails backend. I wanted to replicate the user experience of Medium allowing users to create and read blogs that have been created. I plan on incorporating this application into my portfolio website to keep track of my own personal tech blogs in the near future.
+                        I created a Medium clone using React on a Rails backend.
+                        I wanted to replicate the user experience of Medium
+                        allowing users to create and read blogs that have been
+                        created. I plan on incorporating this application into
+                        my portfolio website to keep track of my own personal
+                        tech blogs in the near future.
                      </ProjectDescription>
                      <ProjectTech>
                         <Tech>React</Tech>
@@ -223,12 +254,13 @@ class Work extends Component {
                      </ProjectLinks>
                      <ProjectImages>
                         {blog_images.map((image, i) => {
+                           let images = "blog_images";
                            return (
                               <Img
                                  key={i}
                                  src={image.src}
                                  alt={image.alt}
-                                 onClick={() => this.toggleModal(i)}
+                                 onClick={() => this.toggleModal(i, images)}
                               />
                            );
                         })}
@@ -238,7 +270,9 @@ class Work extends Component {
                      <ProjectTitle>Sticky Notes</ProjectTitle>
                      <Hr />
                      <ProjectDescription>
-                        A simple sticky notes application to keep track of tasks at hand. Built using only Ruby on Rails with Rails Views. 
+                        A simple sticky notes application to keep track of tasks
+                        at hand. Built using only Ruby on Rails with Rails
+                        Views.
                      </ProjectDescription>
                      <ProjectTech>
                         <Tech>Ruby on Rails</Tech>
@@ -256,12 +290,13 @@ class Work extends Component {
                      </ProjectLinks>
                      <ProjectImages>
                         {sticky_notes_images.map((image, i) => {
+                           let images = "sticky_notes";
                            return (
                               <Img
                                  key={i}
                                  src={image.src}
                                  alt={image.alt}
-                                 onClick={() => this.toggleModal(i)}
+                                 onClick={() => this.toggleModal(i, images)}
                               />
                            );
                         })}
@@ -284,7 +319,7 @@ const Button = styled.button`
    outline: none;
    border-radius: 5px;
    cursor: pointer;
-   box-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
    &:hover {
       opacity: 0.8;
    }
