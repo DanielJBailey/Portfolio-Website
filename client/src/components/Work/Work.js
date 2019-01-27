@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
-import { jeopardy_images, dev_tracker_images } from "./ProjectImages";
+import { jeopardy_images, dev_tracker_images, trollo_images, blog_images, sticky_notes_images } from "./ProjectImages";
 import ImageModal from "./ImageModal";
 
 class Work extends Component {
@@ -164,12 +164,131 @@ class Work extends Component {
                         })}
                      </ProjectImages>
                   </Project>
+                  <Project>
+                     <ProjectTitle>Trollo - A Trello Clone</ProjectTitle>
+                     <Hr />
+                     <ProjectDescription>
+                        Trollo is a rails application built using rails views with the goal of replicating the user experience of Trello, an online task management software. I wanted to reproduce the UX of Trello, entirely in rails without any React or front end frameworks.  
+                     </ProjectDescription>
+                     <ProjectTech>
+                        <Tech>Ruby on Rails</Tech>
+                        <Tech>Rails Devise Auth</Tech>
+                     </ProjectTech>
+                     <ProjectLinks>
+                        <Link>
+                           <a
+                              href="https://github.com/DanielJBailey/Trollo"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                           >
+                              View Source Code
+                           </a>
+                        </Link>
+                     </ProjectLinks>
+                     <ProjectImages>
+                        {trollo_images.map((image, i) => {
+                           return (
+                              <Img
+                                 key={i}
+                                 src={image.src}
+                                 alt={image.alt}
+                                 onClick={() => this.toggleModal(i)}
+                              />
+                           );
+                        })}
+                     </ProjectImages>
+                  </Project>
+                  <Project>
+                     <ProjectTitle>Blog - My Medium Clone</ProjectTitle>
+                     <Hr />
+                     <ProjectDescription>
+                        I created a Medium clone using React on a Rails backend. I wanted to replicate the user experience of Medium allowing users to create and read blogs that have been created. I plan on incorporating this application into my portfolio website to keep track of my own personal tech blogs in the near future.
+                     </ProjectDescription>
+                     <ProjectTech>
+                        <Tech>React</Tech>
+                        <Tech>Redux</Tech>
+                        <Tech>Ruby on Rails</Tech>
+                        <Tech>Styled Components</Tech>
+                     </ProjectTech>
+                     <ProjectLinks>
+                        <Link>
+                           <a
+                              href="https://github.com/DanielJBailey/Blog-Application"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                           >
+                              View Source Code
+                           </a>
+                        </Link>
+                     </ProjectLinks>
+                     <ProjectImages>
+                        {blog_images.map((image, i) => {
+                           return (
+                              <Img
+                                 key={i}
+                                 src={image.src}
+                                 alt={image.alt}
+                                 onClick={() => this.toggleModal(i)}
+                              />
+                           );
+                        })}
+                     </ProjectImages>
+                  </Project>
+                  <Project>
+                     <ProjectTitle>Sticky Notes</ProjectTitle>
+                     <Hr />
+                     <ProjectDescription>
+                        A simple sticky notes application to keep track of tasks at hand. Built using only Ruby on Rails with Rails Views. 
+                     </ProjectDescription>
+                     <ProjectTech>
+                        <Tech>Ruby on Rails</Tech>
+                     </ProjectTech>
+                     <ProjectLinks>
+                        <Link>
+                           <a
+                              href="https://github.com/DanielJBailey/Sticky_Notes_App"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                           >
+                              View Source Code
+                           </a>
+                        </Link>
+                     </ProjectLinks>
+                     <ProjectImages>
+                        {sticky_notes_images.map((image, i) => {
+                           return (
+                              <Img
+                                 key={i}
+                                 src={image.src}
+                                 alt={image.alt}
+                                 onClick={() => this.toggleModal(i)}
+                              />
+                           );
+                        })}
+                     </ProjectImages>
+                  </Project>
+                  <Button>View Github for more</Button>
                </ProjectContainer>
             </WorkContainer>
          </>
       );
    }
 }
+
+const Button = styled.button`
+   padding: 10px 15px;
+   font-size: 16px;
+   color: white;
+   background: #333;
+   border: none;
+   outline: none;
+   border-radius: 5px;
+   cursor: pointer;
+   box-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+   &:hover {
+      opacity: 0.8;
+   }
+`;
 
 const ProjectLinks = styled.ul`
    list-style: none;
@@ -179,7 +298,7 @@ const ProjectLinks = styled.ul`
 const Link = styled.li`
    display: inline-block;
    padding: 5px 10px;
-   font-size: 12px;
+   font-size: 14px;
    border-radius: 5px;
    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
    margin-right: 10px;
