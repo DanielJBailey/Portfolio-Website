@@ -6,16 +6,16 @@ const SideMenu = ({ toggleMenu, open }) => (
   <MenuContainer>
     <Overlay onClick={toggleMenu} />
     <MenuList>
-      <Link to="/" onClick={toggleMenu}>
+      <Link to="/" onClick={toggleMenu} className="menu-item">
         <ListItem open={open}>Home</ListItem>
       </Link>
-      <Link to="/about" onClick={toggleMenu}>
+      <Link to="/about" onClick={toggleMenu} className="menu-item">
         <ListItem open={open}>About</ListItem>
       </Link>
-      <Link to="/work" onClick={toggleMenu}>
+      <Link to="/work" onClick={toggleMenu} className="menu-item">
         <ListItem open={open}>Work</ListItem>
       </Link>
-      <Link to="/experience" onClick={toggleMenu}>
+      <Link to="/experience" onClick={toggleMenu} className="menu-item">
         <ListItem open={open}>Experience</ListItem>
       </Link>
     </MenuList>
@@ -62,13 +62,16 @@ const Overlay = styled.div`
 
 const MenuList = styled.ul`
   list-style: none;
-  width: 50vw;
   z-index: 999;
+
+  .menu-item {
+    &:hover {
+      width: 120%;
+    }
+  }
 `;
 
 const ListItem = styled.li`
-  width: 100%;
-  max-width: 250px;
   text-align: center;
   cursor: pointer;
   background-color: #222f3e;
@@ -77,6 +80,7 @@ const ListItem = styled.li`
   font-size: 16px;
   color: white;
   padding: 20px;
+  width: 200px;
   margin-top: 10px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
   border-top-right-radius: 5px;

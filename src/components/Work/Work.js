@@ -327,7 +327,7 @@ const Tech = styled.li`
    padding: 5px;
    border: 1px solid #ccc;
    border-radius: 5px;
-   margin-right: 5px;
+   margin: 2.5px;
    font-size: 14px;
 `;
 
@@ -391,7 +391,7 @@ const WorkContainer = styled.div`
    margin: 0 auto;
    animation: ${fadeIn} 1s linear;
    @media (max-width: 425px) {
-      padding: 100px 1em;
+      padding: 100px 2em;
    }
 
    h1 {
