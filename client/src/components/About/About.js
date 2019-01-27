@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 const About = () => {
    return (
       <AboutContainer>
-         <h1>About</h1>
+         <h1>About me...</h1>
          <Bio>
             Hi, my name is Daniel and I am a software engineer with a background
             and education in finance. I am originally from Birmingham, Alabama,
@@ -37,6 +37,12 @@ const About = () => {
             <Skill>- Ruby on Rails</Skill>
             <Skill>- MySQL/PostgreSQL</Skill>
             <Skill>- HTML/CSS/SASS</Skill>
+         </SkillsList>
+         <SkillsList>
+            <p>Tech I am interested in learning:</p>
+            <Skill>- Go</Skill>
+            <Skill>- GraphQL/D3</Skill>
+            <Skill>- JS Testing frameworks such as Mocha / Jest</Skill>
          </SkillsList>
          <Bio>
             In my free time you can usually find me snowboarding with friends,

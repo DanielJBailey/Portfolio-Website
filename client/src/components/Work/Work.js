@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { project_images } from "./ProjectImages";
 import ImageModal from "./ImageModal";
 
@@ -9,17 +9,24 @@ class Work extends Component {
       currentImage: null
    };
 
-   toggleModal = (index) =>
+   toggleModal = index =>
       this.setState({
-         showModal: !this.state.showModal,  
+         showModal: !this.state.showModal,
          currentImage: index
       });
+
+   closeModal = e => {
+      e.stopPropagation();
+      this.setState({ showModal: false });
+   };
 
    render() {
       let { showModal, currentImage } = this.state;
       return (
          <>
-            {showModal ? <ImageModal index={currentImage} /> : null}
+            {showModal ? (
+               <ImageModal index={currentImage} toggle={this.closeModal} />
+            ) : null}
             <WorkContainer>
                <h1>My Current Work</h1>
                <ProjectContainer>
@@ -32,6 +39,32 @@ class Work extends Component {
                         current applications, interviews, and phone calls for
                         companies they are interested in.
                      </ProjectDescription>
+                     <ProjectTech>
+                        <Tech>React</Tech>
+                        <Tech>Ruby on Rails</Tech>
+                        <Tech>Redux</Tech>
+                        <Tech>Devise Token Auth</Tech>
+                        <Tech>PostgreSQL</Tech>
+                        <Tech>Styled Components</Tech>
+                     </ProjectTech>
+                     <ProjectLinks>
+                        <Link>
+                           <a
+                              href="https://github.com/devpointlabs/DevTracker"
+                              target="_blank"
+                           >
+                              View Source Code
+                           </a>
+                        </Link>
+                        <Link>
+                           <a
+                              href="https://dev-tracker19.herokuapp.com/"
+                              target="_blank"
+                           >
+                              View Live
+                           </a>
+                        </Link>
+                     </ProjectLinks>
                      <Features>
                         <Feature>
                            <FeatureTitle>Application Tracking</FeatureTitle>
@@ -78,9 +111,6 @@ class Work extends Component {
                            </FeatureDescription>
                         </Feature>
                      </Features>
-                     <ClickMessage>
-                        Click on images to view larger...
-                     </ClickMessage>
                      <ProjectImages>
                         {project_images.map((image, i) => {
                            return (
@@ -94,8 +124,6 @@ class Work extends Component {
                         })}
                      </ProjectImages>
                   </Project>
-                  <Project />
-                  <Project />
                </ProjectContainer>
             </WorkContainer>
          </>
@@ -103,8 +131,54 @@ class Work extends Component {
    }
 }
 
-const ClickMessage = styled.p`
+const ProjectLinks = styled.ul`
+   list-style: none;
+   margin: 10px 0;
+`;
+
+const Link = styled.li`
+   display: inline-block;
+   padding: 5px 10px;
+   font-size: 12px;
+   border-radius: 5px;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+   margin-right: 10px;
+   cursor: pointer;
+   a {
+      text-decoration: none;
+      color: white;
+   }
+   &:hover {
+      opacity: 0.8;
+   }
+   &:first-child {
+      background-color: #333;
+   }
+   &:last-child {
+      background-color: #7673c0;
+   }
+`;
+
+const ProjectTech = styled.ul`
+   list-style: none;
+   margin-top: 10px;
+`;
+const Tech = styled.li`
+   display: inline-block;
+   padding: 5px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   margin-right: 5px;
    font-size: 14px;
+`;
+
+const fadeIn = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
 `;
 
 const ProjectImages = styled.div`
@@ -117,6 +191,9 @@ const ProjectImages = styled.div`
 const Img = styled.img`
    max-width: 100%;
    cursor: pointer;
+   /* box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); */
+   border-radius: 5px;
+   border: 1px solid #ccc;
 `;
 
 const Feature = styled.li`
@@ -130,7 +207,7 @@ const FeatureDescription = styled.p`
 const Features = styled.ul`
    list-style: none;
    width: 100%;
-   padding: 1em 2em;
+   padding: 1em;
 `;
 
 const Hr = styled.hr`
@@ -142,9 +219,7 @@ const Hr = styled.hr`
 `;
 
 const ProjectContainer = styled.div`
-   display: grid;
-   grid-template-columns: 1fr;
-   grid-gap: 1em;
+   display: block;
    padding: 50px 0;
 `;
 
@@ -155,6 +230,10 @@ const WorkContainer = styled.div`
    max-width: 800px;
    width: 100%;
    margin: 0 auto;
+   animation: ${fadeIn} 1s linear;
+   @media(max-width: 425px) {
+       padding: 100px 1em;
+   }
 
    h1 {
       &:before {
@@ -167,7 +246,9 @@ const WorkContainer = styled.div`
    }
 `;
 
-const Project = styled.div``;
+const Project = styled.div`
+`;
+
 
 const ProjectTitle = styled.h2``;
 
