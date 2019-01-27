@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
-import { project_images } from "./ProjectImages";
+import { jeopardy_images, dev_tracker_images } from "./ProjectImages";
 import ImageModal from "./ImageModal";
 
 class Work extends Component {
@@ -52,6 +52,7 @@ class Work extends Component {
                            <a
                               href="https://github.com/devpointlabs/DevTracker"
                               target="_blank"
+                              rel="noopener noreferrer"
                            >
                               View Source Code
                            </a>
@@ -60,6 +61,7 @@ class Work extends Component {
                            <a
                               href="https://dev-tracker19.herokuapp.com/"
                               target="_blank"
+                              rel="noopener noreferrer"
                            >
                               View Live
                            </a>
@@ -112,7 +114,45 @@ class Work extends Component {
                         </Feature>
                      </Features>
                      <ProjectImages>
-                        {project_images.map((image, i) => {
+                        {dev_tracker_images.map((image, i) => {
+                           return (
+                              <Img
+                                 key={i}
+                                 src={image.src}
+                                 alt={image.alt}
+                                 onClick={() => this.toggleModal(i)}
+                              />
+                           );
+                        })}
+                     </ProjectImages>
+                  </Project>
+                  <Project>
+                     <ProjectTitle>Classic Jeopardy</ProjectTitle>
+                     <Hr />
+                     <ProjectDescription>
+                        The classic jeopard game built entirely in React
+                        combined with a Rails backend. I had an overall goal of replicating the original jeopardy experience as closely as possible, such as allowing users to type in answers or select questions from a dynamic game board. Also, I built an admin dashboard which can be accessed at "/admin". The admin dashboard allows users to edit, create, delete, categories and questions to customize their jeopardy experience. 
+                     </ProjectDescription>
+                     <ProjectTech>
+                        <Tech>React</Tech>
+                        <Tech>Ruby on Rails</Tech>
+                        <Tech>Redux</Tech>
+                        <Tech>PostgreSQL</Tech>
+                        <Tech>Styled Components</Tech>
+                     </ProjectTech>
+                     <ProjectLinks>
+                        <Link>
+                           <a
+                              href="https://github.com/DanielJBailey/Jeopardy"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                           >
+                              View Source Code
+                           </a>
+                        </Link>
+                     </ProjectLinks>
+                     <ProjectImages>
+                        {jeopardy_images.map((image, i) => {
                            return (
                               <Img
                                  key={i}
@@ -231,8 +271,8 @@ const WorkContainer = styled.div`
    width: 100%;
    margin: 0 auto;
    animation: ${fadeIn} 1s linear;
-   @media(max-width: 425px) {
-       padding: 100px 1em;
+   @media (max-width: 425px) {
+      padding: 100px 1em;
    }
 
    h1 {
@@ -247,8 +287,10 @@ const WorkContainer = styled.div`
 `;
 
 const Project = styled.div`
+   &:not(:first-child) {
+      margin-top: 100px;
+   }
 `;
-
 
 const ProjectTitle = styled.h2``;
 
