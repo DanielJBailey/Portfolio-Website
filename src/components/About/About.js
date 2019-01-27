@@ -25,11 +25,11 @@ const About = () => {
             <Bio>
                I have a passion for design as well as an even greater hunger for
                development. I thrive in fast paced environments, surrounded by
-               people with similair interests. I get excited about helping
+               people with similar interests. I get excited about helping
                others learn how to code, and see them get excited about things
                they are able to build. I love to be challenged every day whether
                it be a new algorithm challenge or designing and developing an
-               application with technology I've never used before.
+               application with technology I've never used before. 
             </Bio>
             <SkillsList>
                <p>Tech I am currently using includes:</p>
@@ -48,7 +48,7 @@ const About = () => {
             </SkillsList>
             <Bio>
                In my free time you can usually find me snowboarding with
-               friends, playing video games, traveling all over the world,
+               friends, attending a local hackathon or tech meetup, playing video games, traveling all over the world,
                trying a new restaurant, or exploring the outdoors with my
                amazing wife Jess and my goofy golden retriever named Riggs.
             </Bio>
