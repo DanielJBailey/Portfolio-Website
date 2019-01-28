@@ -314,7 +314,7 @@ class Work extends Component {
                         </ProjectImages>
                      </Project>
                   </Fade>
-                  <Button>View Github for more</Button>
+                  <a href="https://www.github.com/DanielJBailey" target="_blank" rel="noopener noreferrer"><Button>View Github for more</Button></a>
                </ProjectContainer>
             </WorkContainer>
          </>
