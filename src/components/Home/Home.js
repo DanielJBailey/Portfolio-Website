@@ -98,24 +98,11 @@ const SocialMedia = styled.ul`
    margin-left: 2em;
    animation: ${SlideDown} 0.5s ease-in-out;
 
-   @media (max-width: 400px) {
-      margin-left: 10px;
-   }
-   @media(max-width: 500px) and (orientation: landscape) {
-      margin-left: 10px;
-   }
-
    a {
       width: 35px;
       height: 35px;
       padding: 5px;
       margin-top: 5px;
-
-      @media (max-width: 400px) {
-         width: 25px;
-         height: 25px;
-         padding: 2px;
-      }
    }
 
    &:before {
@@ -124,10 +111,6 @@ const SocialMedia = styled.ul`
       height: 32px;
       background-color: black;
       width: 2px;
-
-      @media (max-width: 400px) {
-         height: 20px;
-      }
    }
 `;
 
