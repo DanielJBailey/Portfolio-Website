@@ -77,9 +77,6 @@ const Portrait = styled.img`
    bottom: 0;
    right: 0;
    width: 250px;
-   @media (max-width: 400px) {
-      display: none;
-   }
    @media(max-width: 500px) and (orientation: landscape) {
       display: none;
    }
