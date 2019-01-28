@@ -1,9 +1,11 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import Fade from "react-reveal/Fade";
+import me from "../../assets/me.png";
 
 const Home = () => (
    <HomeContainer>
+      <Portrait src={me} alt="self-portrait" />
       <SocialMedia>
          <a
             href="https://github.com/DanielJBailey"
@@ -49,11 +51,11 @@ const Home = () => (
                </svg>
             </Icon>
          </a>
-         <a
-            href="mailto:daniel.justin.bailey@gmail.com"
-         >
+         <a href="mailto:daniel.justin.bailey@gmail.com">
             <Icon>
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg>
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z" />
+               </svg>
             </Icon>
          </a>
       </SocialMedia>
@@ -69,6 +71,19 @@ const Home = () => (
       </Fade>
    </HomeContainer>
 );
+
+const Portrait = styled.img`
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   width: 250px;
+   @media (max-width: 400px) {
+      display: none;
+   }
+   @media(max-width: 500px) and (orientation: landscape) {
+      display: none;
+   }
+`;
 
 const fadeIn = keyframes`
     0% {
@@ -98,11 +113,24 @@ const SocialMedia = styled.ul`
    margin-left: 2em;
    animation: ${SlideDown} 0.5s ease-in-out;
 
+   @media (max-width: 400px) {
+      margin-left: 10px;
+   }
+   @media(max-width: 500px) and (orientation: landscape) {
+      margin-left: 10px;
+   }
+
    a {
       width: 35px;
       height: 35px;
       padding: 5px;
       margin-top: 5px;
+
+      @media (max-width: 400px) {
+         width: 25px;
+         height: 25px;
+         padding: 2px;
+      }
    }
 
    &:before {
@@ -111,6 +139,10 @@ const SocialMedia = styled.ul`
       height: 32px;
       background-color: black;
       width: 2px;
+
+      @media (max-width: 400px) {
+         height: 20px;
+      }
    }
 `;
 
@@ -131,7 +163,7 @@ const Name = styled.h1`
    letter-spacing: 2px;
    color: #222f3e;
    line-height: 1;
-   @media (max-width: 325px) {
+   @media (max-width: 400px) {
       font-size: 50px;
    }
 `;
@@ -165,8 +197,9 @@ const Location = styled.div`
 const HomeContainer = styled.div`
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
-   justify-content: flex-end;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
    height: 100%;
    min-height: 100vh;
    width: 100%;
