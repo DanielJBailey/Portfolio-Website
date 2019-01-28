@@ -1,11 +1,9 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import Fade from "react-reveal/Fade";
-import me from "../../assets/me.png";
 
 const Home = () => (
    <HomeContainer>
-      <Portrait src={me} alt="self-portrait" />
       <SocialMedia>
          <a
             href="https://github.com/DanielJBailey"
@@ -71,16 +69,6 @@ const Home = () => (
       </Fade>
    </HomeContainer>
 );
-
-const Portrait = styled.img`
-   position: absolute;
-   bottom: 0;
-   right: 0;
-   width: 250px;
-   @media(max-width: 500px) and (orientation: landscape) {
-      display: none;
-   }
-`;
 
 const fadeIn = keyframes`
     0% {
@@ -194,9 +182,8 @@ const Location = styled.div`
 const HomeContainer = styled.div`
    display: flex;
    flex-direction: column;
-   align-items: center;
-   text-align: center;
-   justify-content: center;
+   align-items: flex-start;
+   justify-content: flex-end;
    height: 100%;
    min-height: 100vh;
    width: 100%;
