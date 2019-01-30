@@ -38,9 +38,9 @@ class App extends React.Component {
             <ScrollToTop>
                <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/about" component={About} />
-                  <Route exact path="/work" component={Work} />
-                  <Route exact path="/experience" component={Experience} />
+                  <Route path="/about" component={About} />
+                  <Route path="/work" component={Work} />
+                  <Route path="/experience" component={Experience} />
                </Switch>
             </ScrollToTop>
          </>
