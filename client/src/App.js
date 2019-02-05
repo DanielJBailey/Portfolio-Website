@@ -7,6 +7,7 @@ import Experience from "./components/Experience/Experience";
 import SideMenu from "./components/SideMenu";
 import styled from "styled-components";
 import ScrollToTop from './components/ScrollToTop';
+import Blog from './components/Blog/Blog';
 import "./App.scss";
 
 class App extends React.Component {
@@ -41,6 +42,7 @@ class App extends React.Component {
                   <Route path="/about" component={About} />
                   <Route path="/work" component={Work} />
                   <Route path="/experience" component={Experience} />
+                  <Route path="/blog" component={Blog} />
                </Switch>
             </ScrollToTop>
          </>
