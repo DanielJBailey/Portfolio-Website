@@ -8,19 +8,19 @@ class ThemeProvider extends React.Component {
     darkTheme: false,
     colors: {
       dark: {
-        background: "#424242",
-        fontColor: "#fff"
+        background: "#303030",
+        fontColor: "#fafafa",
       },
       light: {
-        background: "#fff",
-        fontColor: "#424242"
+        background: "#fafafa",
+        fontColor: "#303030",
       }
     },
     change: () => this.changeTheme()
   };
 
   changeTheme = () => {
-     this.setState(state => ({dark: !state.dark}));
+     this.setState(state => ({darkTheme: !state.darkTheme}));
   }
     
   render() {

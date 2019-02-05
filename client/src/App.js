@@ -81,7 +81,6 @@ const OpenMenu = styled.div`
    padding: 1em;
    cursor: pointer;
    z-index: 9999;
-
    @media (max-width: 325px) {
       margin: 0;
    }
