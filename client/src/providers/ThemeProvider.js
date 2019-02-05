@@ -5,8 +5,18 @@ export const ThemeConsumer = ThemeContext.Consumer;
 
 class ThemeProvider extends React.Component {
   state = {
-    dark: false,
-    change: this.changeTheme
+    darkTheme: false,
+    colors: {
+      dark: {
+        background: "#424242",
+        fontColor: "#fff"
+      },
+      light: {
+        background: "#fff",
+        fontColor: "#424242"
+      }
+    },
+    change: () => this.changeTheme()
   };
 
   changeTheme = () => {
@@ -22,4 +32,4 @@ class ThemeProvider extends React.Component {
   }
 }
 
-export default AccountProvider;
+export default ThemeProvider;

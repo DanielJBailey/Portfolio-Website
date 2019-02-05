@@ -6,9 +6,11 @@ import Work from "./components/Work/Work";
 import Experience from "./components/Experience/Experience";
 import SideMenu from "./components/SideMenu";
 import styled from "styled-components";
-import ScrollToTop from './components/ScrollToTop';
-import Blog from './components/Blog/Blog';
+import ScrollToTop from "./components/ScrollToTop";
+import Blog from "./components/Blog/Blog";
+import { ThemeConsumer } from "./providers/ThemeProvider";
 import "./App.scss";
+
 
 class App extends React.Component {
    state = { menuOpen: false };
@@ -24,31 +26,52 @@ class App extends React.Component {
       let middleChildTransitions = ["rotateY(90deg)"];
       let lastChildTransitions = ["translateY(-10px)", "rotate(-225deg)"];
       return (
-         <>
-            <OpenMenu onClick={this.toggleMenu}>
-               <span className={className} animations={firstChildTransitions} />
-               <span
-                  className={className}
-                  animations={middleChildTransitions}
-               />
-               <span className={className} animations={lastChildTransitions} />
-            </OpenMenu>
-            {menuOpen ? (
-               <SideMenu toggleMenu={this.toggleMenu} open={menuOpen} />
-            ) : null}
-            <ScrollToTop>
-               <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/about" component={About} />
-                  <Route path="/work" component={Work} />
-                  <Route path="/experience" component={Experience} />
-                  <Route path="/blog" component={Blog} />
-               </Switch>
-            </ScrollToTop>
-         </>
+         <ThemeConsumer>
+            {value => (
+               <>
+                  <OpenMenu onClick={this.toggleMenu}>
+                     <Span
+                        className={className}
+                        animations={firstChildTransitions}
+                        value={value}
+                     />
+                     <Span
+                        className={className}
+                        animations={middleChildTransitions}
+                        value={value}
+                     />
+                     <Span
+                        className={className}
+                        animations={lastChildTransitions}
+                        value={value}
+                     />
+                  </OpenMenu>
+                  {menuOpen ? (
+                     <SideMenu toggleMenu={this.toggleMenu} open={menuOpen} />
+                  ) : null}
+                  <ScrollToTop>
+                     <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/work" component={Work} />
+                        <Route path="/experience" component={Experience} />
+                        <Route path="/blog" component={Blog} />
+                     </Switch>
+                  </ScrollToTop>
+               </>
+            )}
+         </ThemeConsumer>
       );
    }
 }
+
+const Span = styled.span`
+   background-color: ${({value:{darkTheme, colors:{light, dark}}}) => {
+      if (darkTheme) {
+         return dark.fontColor;
+      } else return light.fontColor;
+   }};
+`;
 
 const OpenMenu = styled.div`
    position: fixed;
@@ -68,7 +91,6 @@ const OpenMenu = styled.div`
       height: 2px;
       margin-top: 8px;
       border-radius: 2px;
-      background-color: black;
       transition: 0.75s;
    }
    .menu-bar.open {
