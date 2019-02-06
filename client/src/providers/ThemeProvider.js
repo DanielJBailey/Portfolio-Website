@@ -10,12 +10,14 @@ class ThemeProvider extends React.Component {
       dark: {
         background: "#2f3640",
         fontColor: "#ced6e0",
-        overlay: "rgba(47, 54, 64, 0.7)"
+        overlay: "rgba(47, 54, 64, 0.7)",
+        lightText: "rgba(206, 214, 224, 0.7)"
       },
       light: {
         background: "#fff",
         fontColor: "#2f3640",
-        overlay: "rgba(250, 250, 250, 0.7)"
+        overlay: "rgba(250, 250, 250, 0.7)",
+        lightText: "rgba(47, 54, 64, 0.7)"
       }
     },
     change: () => this.changeTheme()

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
 import Fade from "react-reveal/Fade";
+import { ThemeConsumer } from "../../providers/ThemeProvider";
 
 class Experience extends Component {
    state = {
@@ -19,196 +20,251 @@ class Experience extends Component {
    render() {
       const { companyIndex, educationIndex } = this.state;
       return (
-         <ExperienceContainer>
-            <Fade left distance="100px">
-               <h1>Where I've been</h1>
-               <WorkContainer>
-                  <Company
-                     onClick={() => this.updateCompanyIndex(0)}
-                     index={companyIndex}
-                  >
-                     Dev Point Labs
-                  </Company>
-                  <Company
-                     onClick={() => this.updateCompanyIndex(1)}
-                     index={companyIndex}
-                  >
-                     Tech Birmingham
-                  </Company>
-                  <Company
-                     onClick={() => this.updateCompanyIndex(2)}
-                     index={companyIndex}
-                  >
-                     Regions Bank
-                  </Company>
-               </WorkContainer>
-               <ExperienceIndicator>
-                  <ExperienceBar index={companyIndex} />
-               </ExperienceIndicator>
-               <PositionsContainer>
-                  {companyIndex === 0 ? (
-                     <Position>
-                        <CompanyName>Dev Point Labs</CompanyName>
-                        <Title>Software Engineer</Title>
-                        <DatesEmployed>
-                           Salt Lake City, UT (Nov 2018 - Feb 2019)
-                        </DatesEmployed>
-                        <TaskList>
-                           <Task>
-                              Received the Opportunity in Tech Scholarship from
-                              DPL to attend the winter 2018 cohort.
-                           </Task>
-                           <Task>
-                              Completed the full stack Ruby on Rails web
-                              development course after completing nearly 800
-                              hours of coursework over the course of three
-                              months.
-                           </Task>
-                           <Task>
-                              Built several projects with technologies such as
-                              Ruby, Ruby on Rails, Vanilla JavaScript, React,
-                              Redux, React Context API, Authentication, styled
-                              components, deployment with Heroku, Agile
-                              methodologies, and PostgreSQL databases.
-                           </Task>
-                           <Task>
-                              Participated in two hackathons where we built a
-                              trip planning application called Trip Hackr, and a
-                              Youtube clone called UToob. Both were built using
-                              Ruby on Rails with React front-ends.
-                           </Task>
-                        </TaskList>
-                     </Position>
-                  ) : null}
-                  {companyIndex === 1 ? (
-                     <Position>
-                        <CompanyName>Tech Birmingham</CompanyName>
-                        <Title>Assistant Instructor</Title>
-                        <DatesEmployed>
-                           Birmingham, AL (Jan 2018 - Sep 2018)
-                        </DatesEmployed>
-                        <TaskList>
-                           <Task>
-                              Volunteered once per month to help teach young
-                              adults between the ages of 9 to 17, the basics of
-                              software development.
-                           </Task>
-                           <Task>
-                              Help teach topics covering areas such as basic
-                              computer programming skills, basic JavaScript,
-                              HTML/CSS, and data.
-                           </Task>
-                        </TaskList>
-                     </Position>
-                  ) : null}
-                  {companyIndex === 2 ? (
-                     <Position>
-                        <CompanyName>Regions Bank</CompanyName>
-                        <Title>
-                           Assistant Vice President - Risk Analyst III
-                        </Title>
-                        <DatesEmployed>
-                           Birmingham, AL (Jan 2017 - Sep 2018)
-                        </DatesEmployed>
-                        <TaskList>
-                           <Task>
-                              Utilized MySQL to perform multiple data validation
-                              procedures for monthly reports to the Federal
-                              Reserve.
-                           </Task>
-                           <Task>
-                              Built several stored procedures and reports
-                              leveraging SQL to help various branches of the
-                              bank make more informed decisions about the future
-                              of its banking strategy.
-                           </Task>
-                           <Task>
-                              My direct contributions to our data validation
-                              procedures improved overall data accuracy
-                              benchmarks from 40% to over 90%.
-                           </Task>
-                           <Task>
-                              Assisted fellow programmers build and design
-                              reporting software used monthly by all upper level
-                              management to assist them and their division make
-                              informed decisions for the bank.
-                           </Task>
-                        </TaskList>
-                     </Position>
-                  ) : null}
-               </PositionsContainer>
-            </Fade>
-            <Fade left distance="100px">
-               <h1>Where I've learned</h1>
-               <EducationContainer>
-                  <Company
-                     onClick={() => this.updateEducationIndex(0)}
-                     index={educationIndex}
-                  >
-                     The University of Utah
-                  </Company>
-                  <Company
-                     onClick={() => this.updateEducationIndex(1)}
-                     index={educationIndex}
-                  >
-                     The University of Alabama at Birmingham
-                  </Company>
-               </EducationContainer>
-               <EducationIndicator>
-                  <EducationBar index={educationIndex} />
-               </EducationIndicator>
-               <PositionsContainer>
-                  {educationIndex === 0 ? (
-                     <Education>
-                        <CompanyName>The University of Utah</CompanyName>
-                        <Title>
-                           Full Time Web Development Certification, Professional
-                           Education, Dev Point Labs
-                        </Title>
-                        <DatesEmployed>
-                           Salt Lake City, UT (Nov 2018 - Feb 2019)
-                        </DatesEmployed>
-                        <TaskList>
-                           <Task>
-                              Completed The University of Utah sponsored Dev
-                              Point Labs full time software engineering bootcamp
-                              located in Salt Lake City, Utah.
-                           </Task>
-                        </TaskList>
-                     </Education>
-                  ) : null}
-                  {educationIndex === 1 ? (
-                     <Education>
-                        <CompanyName>
-                           The University of Alabama at Birmingham
-                        </CompanyName>
-                        <Title>Bachelor of Science in Finance</Title>
-                        <DatesEmployed>
-                           Birmingham, AL (2011 - 2015)
-                        </DatesEmployed>
-                        <TaskList>
-                           <Task>
-                              Volunteered as an Investment Analyst for the UAB
-                              Green and Gold Fund, in the alternatives sector
-                              (2013-2015).
-                           </Task>
-                        </TaskList>
-                     </Education>
-                  ) : null}
-               </PositionsContainer>
-            </Fade>
-         </ExperienceContainer>
+         <ThemeConsumer>
+            {value => (
+               <ExperienceBackground value={value}>
+                  <ExperienceContainer value={value}>
+                     <Fade left distance="100px">
+                        <Heading value={value}>Where I've been</Heading>
+                        <WorkContainer>
+                           <Company
+                              onClick={() => this.updateCompanyIndex(0)}
+                              index={companyIndex}
+                              value={value}
+                           >
+                              Dev Point Labs
+                           </Company>
+                           <Company
+                              onClick={() => this.updateCompanyIndex(1)}
+                              index={companyIndex}
+                              value={value}
+                           >
+                              Tech Birmingham
+                           </Company>
+                           <Company
+                              onClick={() => this.updateCompanyIndex(2)}
+                              index={companyIndex}
+                              value={value}
+                           >
+                              Regions Bank
+                           </Company>
+                        </WorkContainer>
+                        <ExperienceIndicator value={value}>
+                           <ExperienceBar value={value} index={companyIndex} />
+                        </ExperienceIndicator>
+                        <PositionsContainer>
+                           {companyIndex === 0 ? (
+                              <Position>
+                                 <CompanyName>Dev Point Labs</CompanyName>
+                                 <Title>Software Engineer</Title>
+                                 <DatesEmployed value={value}>
+                                    Salt Lake City, UT (Nov 2018 - Feb 2019)
+                                 </DatesEmployed>
+                                 <TaskList>
+                                    <Task value={value}>
+                                       Received the Opportunity in Tech
+                                       Scholarship from DPL to attend the winter
+                                       2018 cohort.
+                                    </Task>
+                                    <Task value={value}>
+                                       Completed the full stack Ruby on Rails
+                                       web development course after completing
+                                       nearly 800 hours of coursework over the
+                                       course of three months.
+                                    </Task>
+                                    <Task value={value}>
+                                       Built several projects with technologies
+                                       such as Ruby, Ruby on Rails, Vanilla
+                                       JavaScript, React, Redux, React Context
+                                       API, Authentication, styled components,
+                                       deployment with Heroku, Agile
+                                       methodologies, and PostgreSQL databases.
+                                    </Task>
+                                    <Task value={value}>
+                                       Participated in two hackathons where we
+                                       built a trip planning application called
+                                       Trip Hackr, and a Youtube clone called
+                                       UToob. Both were built using Ruby on
+                                       Rails with React front-ends.
+                                    </Task>
+                                 </TaskList>
+                              </Position>
+                           ) : null}
+                           {companyIndex === 1 ? (
+                              <Position>
+                                 <CompanyName>Tech Birmingham</CompanyName>
+                                 <Title>Assistant Instructor</Title>
+                                 <DatesEmployed value={value}>
+                                    Birmingham, AL (Jan 2018 - Sep 2018)
+                                 </DatesEmployed>
+                                 <TaskList>
+                                    <Task value={value}>
+                                       Volunteered once per month to help teach
+                                       young adults between the ages of 9 to 17,
+                                       the basics of software development.
+                                    </Task>
+                                    <Task value={value}>
+                                       Help teach topics covering areas such as
+                                       basic computer programming skills, basic
+                                       JavaScript, HTML/CSS, and data.
+                                    </Task>
+                                 </TaskList>
+                              </Position>
+                           ) : null}
+                           {companyIndex === 2 ? (
+                              <Position>
+                                 <CompanyName>Regions Bank</CompanyName>
+                                 <Title>
+                                    Assistant Vice President - Risk Analyst III
+                                 </Title>
+                                 <DatesEmployed value={value}>
+                                    Birmingham, AL (Jan 2017 - Sep 2018)
+                                 </DatesEmployed>
+                                 <TaskList>
+                                    <Task value={value}>
+                                       Utilized MySQL to perform multiple data
+                                       validation procedures for monthly reports
+                                       to the Federal Reserve.
+                                    </Task>
+                                    <Task value={value}>
+                                       Built several stored procedures and
+                                       reports leveraging SQL to help various
+                                       branches of the bank make more informed
+                                       decisions about the future of its banking
+                                       strategy.
+                                    </Task>
+                                    <Task value={value}>
+                                       My direct contributions to our data
+                                       validation procedures improved overall
+                                       data accuracy benchmarks from 40% to over
+                                       90%.
+                                    </Task>
+                                    <Task value={value}>
+                                       Assisted fellow programmers build and
+                                       design reporting software used monthly by
+                                       all upper level management to assist them
+                                       and their division make informed
+                                       decisions for the bank.
+                                    </Task>
+                                 </TaskList>
+                              </Position>
+                           ) : null}
+                        </PositionsContainer>
+                     </Fade>
+                     <Fade left distance="100px">
+                        <h1>Where I've learned</h1>
+                        <EducationContainer>
+                           <Company
+                              onClick={() => this.updateEducationIndex(0)}
+                              index={educationIndex}
+                              value={value}
+                           >
+                              The University of Utah
+                           </Company>
+                           <Company
+                              onClick={() => this.updateEducationIndex(1)}
+                              index={educationIndex}
+                              value={value}
+                           >
+                              The University of Alabama at Birmingham
+                           </Company>
+                        </EducationContainer>
+                        <EducationIndicator value={value}>
+                           <EducationBar value={value} index={educationIndex} />
+                        </EducationIndicator>
+                        <PositionsContainer>
+                           {educationIndex === 0 ? (
+                              <Education>
+                                 <CompanyName>
+                                    The University of Utah
+                                 </CompanyName>
+                                 <Title>
+                                    Full Time Web Development Certification,
+                                    Professional Education, Dev Point Labs
+                                 </Title>
+                                 <DatesEmployed value={value}>
+                                    Salt Lake City, UT (Nov 2018 - Feb 2019)
+                                 </DatesEmployed>
+                                 <TaskList>
+                                    <Task value={value}>
+                                       Completed The University of Utah
+                                       sponsored Dev Point Labs full time
+                                       software engineering bootcamp located in
+                                       Salt Lake City, Utah.
+                                    </Task>
+                                 </TaskList>
+                              </Education>
+                           ) : null}
+                           {educationIndex === 1 ? (
+                              <Education>
+                                 <CompanyName>
+                                    The University of Alabama at Birmingham
+                                 </CompanyName>
+                                 <Title>Bachelor of Science in Finance</Title>
+                                 <DatesEmployed value={value}>
+                                    Birmingham, AL (2011 - 2015)
+                                 </DatesEmployed>
+                                 <TaskList>
+                                    <Task value={value}>
+                                       Volunteered as an Investment Analyst for
+                                       the UAB Green and Gold Fund, in the
+                                       alternatives sector (2013-2015).
+                                    </Task>
+                                 </TaskList>
+                              </Education>
+                           ) : null}
+                        </PositionsContainer>
+                     </Fade>
+                  </ExperienceContainer>
+               </ExperienceBackground>
+            )}
+         </ThemeConsumer>
       );
    }
 }
 
+const Heading = styled.h1`
+   &:before {
+      display: block;
+      content: "";
+      width: 50px;
+      height: 10px;
+      background-color: ${({
+         value: {
+            darkTheme,
+            colors: { light, dark }
+         }
+      }) => {
+         if (darkTheme) {
+            return "#fff";
+         } else return light.fontColor;
+      }};
+   }
+`;
+
+const ExperienceBackground = styled.div`
+   width: 100%;
+   height: 100%;
+   min-height: 100vh;
+   background-color: ${({
+      value: {
+         darkTheme,
+         colors: { light, dark }
+      }
+   }) => {
+      if (darkTheme) {
+         return dark.background;
+      } else return light.background;
+   }};
+`;
+
 const fadeIn = keyframes`
     0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1.0;
-    }
+       opacity: 0;
+      }
+      100% {
+         opacity: 1.0;
+      }
 `;
 
 const PositionsContainer = styled.div`
@@ -218,14 +274,21 @@ const PositionsContainer = styled.div`
    }
 `;
 const Title = styled.h4``;
-const Position = styled.div`
-`;
-const Education = styled.div`
-`;
+const Position = styled.div``;
+const Education = styled.div``;
 const CompanyName = styled.h2``;
 const DatesEmployed = styled.p`
    font-size: 14px;
-   color: #b3b3b3;
+   color: ${({
+      value: {
+         darkTheme,
+         colors: { light, dark }
+      }
+   }) => {
+      if (darkTheme) {
+         return dark.lightText;
+      } else return light.lightText;
+   }};
 `;
 const TaskList = styled.ul`
    list-style: none;
@@ -233,7 +296,16 @@ const TaskList = styled.ul`
 `;
 const Task = styled.li`
    font-size: 14px;
-   color: #666;
+   color: ${({
+      value: {
+         darkTheme,
+         colors: { light, dark }
+      }
+   }) => {
+      if (darkTheme) {
+         return dark.lightText;
+      } else return light.lightText;
+   }};
    line-height: 1.5;
 
    &:not(:first-child) {
@@ -256,6 +328,7 @@ const WorkContainer = styled.ul`
    grid-template-columns: 1fr 1fr 1fr;
    list-style: none;
    margin-top: 25px;
+   background-color: transparent;
 `;
 
 const EducationContainer = styled.ul`
@@ -263,6 +336,7 @@ const EducationContainer = styled.ul`
    grid-template-columns: 1fr 1fr;
    list-style: none;
    margin-top: 25px;
+   background-color: transparent;
 `;
 
 const Company = styled.li`
@@ -274,20 +348,32 @@ const Company = styled.li`
    align-items: center;
    padding: 10px 5px;
    text-align: center;
-   color: #b3b3b3;
+
    &:first-child {
       color: ${props => {
-         return props.index === 0 ? "#333" : "#b3b3b3";
+         if (props.index === 0 && props.value.darkTheme) {
+            return props.value.colors.dark.fontColor;
+         } else if (props.index !== 0 && props.value.darkTheme) {
+            return props.value.colors.dark.lightText;
+         }
       }};
    }
    &:nth-child(2) {
       color: ${props => {
-         return props.index === 1 ? "#333" : "#b3b3b3";
+         if (props.index === 1 && props.value.darkTheme) {
+            return props.value.colors.dark.fontColor;
+         } else if (props.index !== 0 && props.value.darkTheme) {
+            return props.value.colors.dark.lightText;
+         }
       }};
    }
    &:nth-child(3) {
       color: ${props => {
-         return props.index === 2 ? "#333" : "#b3b3b3";
+         if (props.index === 2 && props.value.darkTheme) {
+            return props.value.colors.dark.fontColor;
+         } else if (props.index !== 0 && props.value.darkTheme) {
+            return props.value.colors.dark.lightText;
+         }
       }};
    }
 `;
@@ -298,8 +384,16 @@ const ExperienceIndicator = styled.div`
    &:after {
       display: block;
       content: "";
-      background-color: #ccc;
       height: 3px;
+      background-color: ${({
+         value: {
+            darkTheme
+         }
+      }) => {
+         if (darkTheme) {
+            return "rgba(0,0,0,0.4)";
+         } else return "#ccc";
+      }};
    }
 `;
 
@@ -320,11 +414,19 @@ const ExperienceBar = styled.div`
       }
    }};
    width: 33.333%;
-   background-color: #333;
    &:after {
       display: block;
       content: "";
-      background-color: black;
+      background-color: ${({
+         value: {
+            darkTheme,
+            colors: {light, dark}
+         }
+      }) => {
+         if (darkTheme) {
+            return dark.fontColor;
+         } else return light.fontColor;
+      }};
       height: 3px;
    }
 `;
@@ -335,7 +437,15 @@ const EducationIndicator = styled.div`
    &:after {
       display: block;
       content: "";
-      background-color: #ccc;
+      background-color: ${({
+         value: {
+            darkTheme
+         }
+      }) => {
+         if (darkTheme) {
+            return "rgba(0,0,0,0.4)";
+         } else return "#ccc";
+      }};
       height: 3px;
    }
 `;
@@ -359,7 +469,16 @@ const EducationBar = styled.div`
    &:after {
       display: block;
       content: "";
-      background-color: black;
+      background-color: ${({
+         value: {
+            darkTheme,
+            colors: {light, dark}
+         }
+      }) => {
+         if (darkTheme) {
+            return dark.fontColor;
+         } else return light.fontColor;
+      }};
       height: 3px;
    }
 `;
@@ -372,18 +491,18 @@ const ExperienceContainer = styled.div`
    width: 100%;
    margin: 0 auto;
    animation: ${fadeIn} 1s linear;
+   color: ${({
+      value: {
+         darkTheme,
+         colors: { light, dark }
+      }
+   }) => {
+      if (darkTheme) {
+         return dark.fontColor;
+      } else return light.fontColor;
+   }};
    @media (max-width: 425px) {
       padding: 100px 1em;
-   }
-
-   h1 {
-      &:before {
-         display: block;
-         content: "";
-         width: 50px;
-         height: 10px;
-         background-color: #222f3e;
-      }
    }
 `;
 
