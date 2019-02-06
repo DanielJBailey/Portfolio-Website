@@ -9,7 +9,7 @@ class ThemeProvider extends React.Component {
     colors: {
       dark: {
         background: "#2f3640",
-        fontColor: "#fff",
+        fontColor: "#ced6e0",
         overlay: "rgba(47, 54, 64, 0.7)"
       },
       light: {
