@@ -9,6 +9,7 @@ import {
 } from "./ProjectImages";
 import ImageModal from "./ImageModal";
 import Fade from "react-reveal/Fade";
+import { ThemeConsumer } from "../../providers/ThemeProvider";
 
 class Work extends Component {
    state = {
@@ -32,295 +33,352 @@ class Work extends Component {
    render() {
       let { showModal, currentImage, images } = this.state;
       return (
-         <>
-            {showModal ? (
-               <ImageModal
-                  index={currentImage}
-                  images={images}
-                  toggle={this.closeModal}
-               />
-            ) : null}
-            <WorkContainer>
-               <h1>My Current Work</h1>
-               <ProjectContainer>
-                  <Fade bottom distance="100px">
-                     <Project>
-                        <ProjectTitle>Dev Tracker</ProjectTitle>
-                        <Hr />
-                        <ProjectDescription>
-                           Dev Tracker is a web application that we built for
-                           Dev Point Labs that allows students to log in and
-                           track current applications, interviews, and phone
-                           calls for companies they are interested in.
-                        </ProjectDescription>
-                        <ProjectTech>
-                           <Tech>React</Tech>
-                           <Tech>Ruby on Rails</Tech>
-                           <Tech>Redux</Tech>
-                           <Tech>Devise Token Auth</Tech>
-                           <Tech>PostgreSQL</Tech>
-                           <Tech>Styled Components</Tech>
-                        </ProjectTech>
-                        <ProjectLinks>
-                           <Link>
-                              <a
-                                 href="https://github.com/devpointlabs/DevTracker"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 View Source Code
-                              </a>
-                           </Link>
-                           <Link>
-                              <a
-                                 href="https://dev-tracker19.herokuapp.com/"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 View Live
-                              </a>
-                           </Link>
-                        </ProjectLinks>
-                        <Features>
-                           <Feature>
-                              <FeatureTitle>Application Tracking</FeatureTitle>
-                              <FeatureDescription>
-                                 Users can add, update, and delete applications
-                                 in order to keep track of multiple
-                                 applications.
-                              </FeatureDescription>
-                           </Feature>
-                           <Feature>
-                              <FeatureTitle>Tracker</FeatureTitle>
-                              <FeatureDescription>
-                                 Users can track applications in a list format
-                                 and filter based on application status and can
-                                 take advantage of a custom built search
-                                 function, to even further filter results.
-                              </FeatureDescription>
-                           </Feature>
-                           <Feature>
-                              <FeatureTitle>Tasks</FeatureTitle>
-                              <FeatureDescription>
-                                 Users can create tasks to be completed and
-                                 schedule a due date to be completed by. Tasks
-                                 are then displayed on dashboard to help remind
-                                 users of upcoming tasks to be completed.
-                              </FeatureDescription>
-                           </Feature>
-                           <Feature>
-                              <FeatureTitle>Contacts</FeatureTitle>
-                              <FeatureDescription>
-                                 Users can add contacts they have made for
-                                 companies they are interested in. Users can
-                                 input information such as links to their
-                                 LinkedIn accounts or other contact information
-                                 to help organize all information in one place.
-                              </FeatureDescription>
-                           </Feature>
-                           <Feature>
-                              <FeatureTitle>Event Monitoring</FeatureTitle>
-                              <FeatureDescription>
-                                 Events were created with the goal of tracking
-                                 progress with companies such as upcoming
-                                 interviews, phone calls, or even offers our
-                                 users have recieved.
-                              </FeatureDescription>
-                           </Feature>
-                        </Features>
-                        <ProjectImages>
-                           {dev_tracker_images.map((image, i) => {
-                              let images = "dev_tracker_images";
-                              return (
-                                 <Img
-                                    key={i}
-                                    src={image.src}
-                                    alt={image.alt}
-                                    onClick={() => this.toggleModal(i, images)}
-                                 />
-                              );
-                           })}
-                        </ProjectImages>
-                     </Project>
-                     </Fade>
-                     <Fade bottom distance="100px">
-                     <Project>
-                        <ProjectTitle>Classic Jeopardy</ProjectTitle>
-                        <Hr />
-                        <ProjectDescription>
-                           The classic jeopard game built entirely in React
-                           combined with a Rails backend. I had an overall goal
-                           of replicating the original jeopardy experience as
-                           closely as possible, such as allowing users to type
-                           in answers or select questions from a dynamic game
-                           board. Also, I built an admin dashboard which can be
-                           accessed at "/admin". The admin dashboard allows
-                           users to edit, create, delete, categories and
-                           questions to customize their jeopardy experience.
-                        </ProjectDescription>
-                        <ProjectTech>
-                           <Tech>React</Tech>
-                           <Tech>Ruby on Rails</Tech>
-                           <Tech>Redux</Tech>
-                           <Tech>PostgreSQL</Tech>
-                           <Tech>Styled Components</Tech>
-                        </ProjectTech>
-                        <ProjectLinks>
-                           <Link>
-                              <a
-                                 href="https://github.com/DanielJBailey/Jeopardy"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 View Source Code
-                              </a>
-                           </Link>
-                        </ProjectLinks>
-                        <ProjectImages>
-                           {jeopardy_images.map((image, i) => {
-                              let images = "jeopardy";
-                              return (
-                                 <Img
-                                    key={i}
-                                    src={image.src}
-                                    alt={image.alt}
-                                    onClick={() => this.toggleModal(i, images)}
-                                 />
-                              );
-                           })}
-                        </ProjectImages>
-                     </Project>
-                     </Fade>
-                     <Fade bottom distance="100px">
-                     <Project>
-                        <ProjectTitle>Trollo - A Trello Clone</ProjectTitle>
-                        <Hr />
-                        <ProjectDescription>
-                           Trollo is a rails application built using rails views
-                           with the goal of replicating the user experience of
-                           Trello, an online task management software. I wanted
-                           to reproduce the UX of Trello, entirely in rails
-                           without any React or front end frameworks.
-                        </ProjectDescription>
-                        <ProjectTech>
-                           <Tech>Ruby on Rails</Tech>
-                           <Tech>Rails Devise Auth</Tech>
-                        </ProjectTech>
-                        <ProjectLinks>
-                           <Link>
-                              <a
-                                 href="https://github.com/DanielJBailey/Trollo"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 View Source Code
-                              </a>
-                           </Link>
-                        </ProjectLinks>
-                        <ProjectImages>
-                           {trollo_images.map((image, i) => {
-                              let images = "trollo";
-                              return (
-                                 <Img
-                                    key={i}
-                                    src={image.src}
-                                    alt={image.alt}
-                                    onClick={() => this.toggleModal(i, images)}
-                                 />
-                              );
-                           })}
-                        </ProjectImages>
-                     </Project>
-                     </Fade>
-                     <Fade bottom distance="100px">
-                     <Project>
-                        <ProjectTitle>Blog - My Medium Clone</ProjectTitle>
-                        <Hr />
-                        <ProjectDescription>
-                           I created a Medium clone using React on a Rails
-                           backend. I wanted to replicate the user experience of
-                           Medium allowing users to create and read blogs that
-                           have been created. I plan on incorporating this
-                           application into my portfolio website to keep track
-                           of my own personal tech blogs in the near future.
-                        </ProjectDescription>
-                        <ProjectTech>
-                           <Tech>React</Tech>
-                           <Tech>Redux</Tech>
-                           <Tech>Ruby on Rails</Tech>
-                           <Tech>Styled Components</Tech>
-                        </ProjectTech>
-                        <ProjectLinks>
-                           <Link>
-                              <a
-                                 href="https://github.com/DanielJBailey/Blog-Application"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 View Source Code
-                              </a>
-                           </Link>
-                        </ProjectLinks>
-                        <ProjectImages>
-                           {blog_images.map((image, i) => {
-                              let images = "blog_images";
-                              return (
-                                 <Img
-                                    key={i}
-                                    src={image.src}
-                                    alt={image.alt}
-                                    onClick={() => this.toggleModal(i, images)}
-                                 />
-                              );
-                           })}
-                        </ProjectImages>
-                     </Project>
-                     </Fade>
-                     <Fade bottom distance="100px">
-                     <Project>
-                        <ProjectTitle>Sticky Notes</ProjectTitle>
-                        <Hr />
-                        <ProjectDescription>
-                           A simple sticky notes application to keep track of
-                           tasks at hand. Built using only Ruby on Rails with
-                           Rails Views.
-                        </ProjectDescription>
-                        <ProjectTech>
-                           <Tech>Ruby on Rails</Tech>
-                        </ProjectTech>
-                        <ProjectLinks>
-                           <Link>
-                              <a
-                                 href="https://github.com/DanielJBailey/Sticky_Notes_App"
-                                 target="_blank"
-                                 rel="noopener noreferrer"
-                              >
-                                 View Source Code
-                              </a>
-                           </Link>
-                        </ProjectLinks>
-                        <ProjectImages>
-                           {sticky_notes_images.map((image, i) => {
-                              let images = "sticky_notes";
-                              return (
-                                 <Img
-                                    key={i}
-                                    src={image.src}
-                                    alt={image.alt}
-                                    onClick={() => this.toggleModal(i, images)}
-                                 />
-                              );
-                           })}
-                        </ProjectImages>
-                     </Project>
-                  </Fade>
-                  <a href="https://www.github.com/DanielJBailey" target="_blank" rel="noopener noreferrer"><Button>View Github for more</Button></a>
-               </ProjectContainer>
-            </WorkContainer>
-         </>
+         <ThemeConsumer>
+            {value => (
+               <>
+                  {showModal ? (
+                     <ImageModal
+                        index={currentImage}
+                        images={images}
+                        toggle={this.closeModal}
+                     />
+                  ) : null}
+                  <WorkBackground value={value}>
+                     <WorkContainer value={value}>
+                        <Heading value={value}>My Current Work</Heading>
+                        <ProjectContainer>
+                           <Fade bottom distance="100px">
+                              <Project>
+                                 <ProjectTitle>Dev Tracker</ProjectTitle>
+                                 <Hr />
+                                 <ProjectDescription>
+                                    Dev Tracker is a web application that we
+                                    built for Dev Point Labs that allows
+                                    students to log in and track current
+                                    applications, interviews, and phone calls
+                                    for companies they are interested in.
+                                 </ProjectDescription>
+                                 <ProjectTech>
+                                    <Tech>React</Tech>
+                                    <Tech>Ruby on Rails</Tech>
+                                    <Tech>Redux</Tech>
+                                    <Tech>Devise Token Auth</Tech>
+                                    <Tech>PostgreSQL</Tech>
+                                    <Tech>Styled Components</Tech>
+                                 </ProjectTech>
+                                 <ProjectLinks>
+                                    <Link>
+                                       <a
+                                          href="https://github.com/devpointlabs/DevTracker"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                       >
+                                          View Source Code
+                                       </a>
+                                    </Link>
+                                    <Link>
+                                       <a
+                                          href="https://dev-tracker19.herokuapp.com/"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                       >
+                                          View Live
+                                       </a>
+                                    </Link>
+                                 </ProjectLinks>
+                                 <Features>
+                                    <Feature>
+                                       <FeatureTitle>
+                                          Application Tracking
+                                       </FeatureTitle>
+                                       <FeatureDescription>
+                                          Users can add, update, and delete
+                                          applications in order to keep track of
+                                          multiple applications.
+                                       </FeatureDescription>
+                                    </Feature>
+                                    <Feature>
+                                       <FeatureTitle>Tracker</FeatureTitle>
+                                       <FeatureDescription>
+                                          Users can track applications in a list
+                                          format and filter based on application
+                                          status and can take advantage of a
+                                          custom built search function, to even
+                                          further filter results.
+                                       </FeatureDescription>
+                                    </Feature>
+                                    <Feature>
+                                       <FeatureTitle>Tasks</FeatureTitle>
+                                       <FeatureDescription>
+                                          Users can create tasks to be completed
+                                          and schedule a due date to be
+                                          completed by. Tasks are then displayed
+                                          on dashboard to help remind users of
+                                          upcoming tasks to be completed.
+                                       </FeatureDescription>
+                                    </Feature>
+                                    <Feature>
+                                       <FeatureTitle>Contacts</FeatureTitle>
+                                       <FeatureDescription>
+                                          Users can add contacts they have made
+                                          for companies they are interested in.
+                                          Users can input information such as
+                                          links to their LinkedIn accounts or
+                                          other contact information to help
+                                          organize all information in one place.
+                                       </FeatureDescription>
+                                    </Feature>
+                                    <Feature>
+                                       <FeatureTitle>
+                                          Event Monitoring
+                                       </FeatureTitle>
+                                       <FeatureDescription>
+                                          Events were created with the goal of
+                                          tracking progress with companies such
+                                          as upcoming interviews, phone calls,
+                                          or even offers our users have
+                                          recieved.
+                                       </FeatureDescription>
+                                    </Feature>
+                                 </Features>
+                                 <ProjectImages>
+                                    {dev_tracker_images.map((image, i) => {
+                                       let images = "dev_tracker_images";
+                                       return (
+                                          <Img
+                                             key={i}
+                                             src={image.src}
+                                             alt={image.alt}
+                                             onClick={() =>
+                                                this.toggleModal(i, images)
+                                             }
+                                          />
+                                       );
+                                    })}
+                                 </ProjectImages>
+                              </Project>
+                           </Fade>
+                           <Fade bottom distance="100px">
+                              <Project>
+                                 <ProjectTitle>Classic Jeopardy</ProjectTitle>
+                                 <Hr />
+                                 <ProjectDescription>
+                                    The classic jeopard game built entirely in
+                                    React combined with a Rails backend. I had
+                                    an overall goal of replicating the original
+                                    jeopardy experience as closely as possible,
+                                    such as allowing users to type in answers or
+                                    select questions from a dynamic game board.
+                                    Also, I built an admin dashboard which can
+                                    be accessed at "/admin". The admin dashboard
+                                    allows users to edit, create, delete,
+                                    categories and questions to customize their
+                                    jeopardy experience.
+                                 </ProjectDescription>
+                                 <ProjectTech>
+                                    <Tech>React</Tech>
+                                    <Tech>Ruby on Rails</Tech>
+                                    <Tech>Redux</Tech>
+                                    <Tech>PostgreSQL</Tech>
+                                    <Tech>Styled Components</Tech>
+                                 </ProjectTech>
+                                 <ProjectLinks>
+                                    <Link>
+                                       <a
+                                          href="https://github.com/DanielJBailey/Jeopardy"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                       >
+                                          View Source Code
+                                       </a>
+                                    </Link>
+                                 </ProjectLinks>
+                                 <ProjectImages>
+                                    {jeopardy_images.map((image, i) => {
+                                       let images = "jeopardy";
+                                       return (
+                                          <Img
+                                             key={i}
+                                             src={image.src}
+                                             alt={image.alt}
+                                             onClick={() =>
+                                                this.toggleModal(i, images)
+                                             }
+                                          />
+                                       );
+                                    })}
+                                 </ProjectImages>
+                              </Project>
+                           </Fade>
+                           <Fade bottom distance="100px">
+                              <Project>
+                                 <ProjectTitle>
+                                    Trollo - A Trello Clone
+                                 </ProjectTitle>
+                                 <Hr />
+                                 <ProjectDescription>
+                                    Trollo is a rails application built using
+                                    rails views with the goal of replicating the
+                                    user experience of Trello, an online task
+                                    management software. I wanted to reproduce
+                                    the UX of Trello, entirely in rails without
+                                    any React or front end frameworks.
+                                 </ProjectDescription>
+                                 <ProjectTech>
+                                    <Tech>Ruby on Rails</Tech>
+                                    <Tech>Rails Devise Auth</Tech>
+                                 </ProjectTech>
+                                 <ProjectLinks>
+                                    <Link>
+                                       <a
+                                          href="https://github.com/DanielJBailey/Trollo"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                       >
+                                          View Source Code
+                                       </a>
+                                    </Link>
+                                 </ProjectLinks>
+                                 <ProjectImages>
+                                    {trollo_images.map((image, i) => {
+                                       let images = "trollo";
+                                       return (
+                                          <Img
+                                             key={i}
+                                             src={image.src}
+                                             alt={image.alt}
+                                             onClick={() =>
+                                                this.toggleModal(i, images)
+                                             }
+                                          />
+                                       );
+                                    })}
+                                 </ProjectImages>
+                              </Project>
+                           </Fade>
+                           <Fade bottom distance="100px">
+                              <Project>
+                                 <ProjectTitle>
+                                    Blog - My Medium Clone
+                                 </ProjectTitle>
+                                 <Hr />
+                                 <ProjectDescription>
+                                    I created a Medium clone using React on a
+                                    Rails backend. I wanted to replicate the
+                                    user experience of Medium allowing users to
+                                    create and read blogs that have been
+                                    created. I plan on incorporating this
+                                    application into my portfolio website to
+                                    keep track of my own personal tech blogs in
+                                    the near future.
+                                 </ProjectDescription>
+                                 <ProjectTech>
+                                    <Tech>React</Tech>
+                                    <Tech>Redux</Tech>
+                                    <Tech>Ruby on Rails</Tech>
+                                    <Tech>Styled Components</Tech>
+                                 </ProjectTech>
+                                 <ProjectLinks>
+                                    <Link>
+                                       <a
+                                          href="https://github.com/DanielJBailey/Blog-Application"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                       >
+                                          View Source Code
+                                       </a>
+                                    </Link>
+                                 </ProjectLinks>
+                                 <ProjectImages>
+                                    {blog_images.map((image, i) => {
+                                       let images = "blog_images";
+                                       return (
+                                          <Img
+                                             key={i}
+                                             src={image.src}
+                                             alt={image.alt}
+                                             onClick={() =>
+                                                this.toggleModal(i, images)
+                                             }
+                                          />
+                                       );
+                                    })}
+                                 </ProjectImages>
+                              </Project>
+                           </Fade>
+                           <Fade bottom distance="100px">
+                              <Project>
+                                 <ProjectTitle>Sticky Notes</ProjectTitle>
+                                 <Hr />
+                                 <ProjectDescription>
+                                    A simple sticky notes application to keep
+                                    track of tasks at hand. Built using only
+                                    Ruby on Rails with Rails Views.
+                                 </ProjectDescription>
+                                 <ProjectTech>
+                                    <Tech>Ruby on Rails</Tech>
+                                 </ProjectTech>
+                                 <ProjectLinks>
+                                    <Link>
+                                       <a
+                                          href="https://github.com/DanielJBailey/Sticky_Notes_App"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                       >
+                                          View Source Code
+                                       </a>
+                                    </Link>
+                                 </ProjectLinks>
+                                 <ProjectImages>
+                                    {sticky_notes_images.map((image, i) => {
+                                       let images = "sticky_notes";
+                                       return (
+                                          <Img
+                                             key={i}
+                                             src={image.src}
+                                             alt={image.alt}
+                                             onClick={() =>
+                                                this.toggleModal(i, images)
+                                             }
+                                          />
+                                       );
+                                    })}
+                                 </ProjectImages>
+                              </Project>
+                           </Fade>
+                           <a
+                              href="https://www.github.com/DanielJBailey"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                           >
+                              <Button>View Github for more</Button>
+                           </a>
+                        </ProjectContainer>
+                     </WorkContainer>
+                  </WorkBackground>
+               </>
+            )}
+         </ThemeConsumer>
       );
    }
 }
+
+const WorkBackground = styled.div`
+   height: 100%;
+   min-height: 100vh;
+   width: 100%;
+   background-color:  ${({
+      value: {
+         darkTheme,
+         colors: { light, dark }
+      }
+   }) => {
+      if (darkTheme) {
+         return dark.background;
+      } else return light.background;
+   }};
+
+`;
 
 const Button = styled.button`
    padding: 10px 15px;
@@ -372,10 +430,13 @@ const ProjectTech = styled.ul`
 const Tech = styled.li`
    display: inline-block;
    padding: 5px;
-   border: 1px solid #ccc;
+   border: 0.5px solid #ccc;
    border-radius: 5px;
    margin: 2.5px;
    font-size: 14px;
+   &:first-child {
+      margin-left: 0;
+   }
 `;
 
 const fadeIn = keyframes`
@@ -397,9 +458,14 @@ const ProjectImages = styled.div`
 const Img = styled.img`
    max-width: 100%;
    cursor: pointer;
-   /* box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); */
    border-radius: 5px;
    border: 1px solid #ccc;
+   transition: 0.5s;
+   &:hover {
+      box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px);
+
+   }
 `;
 
 const Feature = styled.li`
@@ -437,18 +503,37 @@ const WorkContainer = styled.div`
    width: 100%;
    margin: 0 auto;
    animation: ${fadeIn} 1s linear;
+   color: ${({
+      value: {
+         darkTheme,
+         colors: { light, dark }
+      }
+   }) => {
+      if (darkTheme) {
+         return dark.fontColor;
+      } else return light.fontColor;
+   }};
    @media (max-width: 425px) {
       padding: 100px 1em;
    }
+`;
 
-   h1 {
-      &:before {
-         display: block;
-         content: "";
-         width: 50px;
-         height: 10px;
-         background-color: #222f3e;
-      }
+const Heading = styled.h1`
+   &:before {
+      display: block;
+      content: "";
+      width: 50px;
+      height: 10px;
+      background-color: ${({
+         value: {
+            darkTheme,
+            colors: { light}
+         }
+      }) => {
+         if (darkTheme) {
+            return "#fff";
+         } else return light.fontColor;
+      }};
    }
 `;
 
