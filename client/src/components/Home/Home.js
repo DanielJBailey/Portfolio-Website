@@ -2,11 +2,13 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import Fade from "react-reveal/Fade";
 import { ThemeConsumer } from "../../providers/ThemeProvider";
+import ToggleButton from './ToggleButton';
 
 const Home = () => (
    <ThemeConsumer>
       {value => (
          <HomeContainer value={value} onClick={value.change}>
+            <ToggleButton/>
             <SocialMedia value={value}>
                <a
                   href="https://github.com/DanielJBailey"
@@ -242,8 +244,9 @@ const SVG = styled.svg`
 const HomeContainer = styled.div`
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
-   justify-content: flex-end;
+   position: relative;
+   align-items: center;
+   justify-content: center;
    height: 100%;
    transition: 0.75s;
    min-height: 100vh;
