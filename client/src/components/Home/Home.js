@@ -7,8 +7,8 @@ import ToggleButton from './ToggleButton';
 const Home = () => (
    <ThemeConsumer>
       {value => (
-         <HomeContainer value={value} onClick={value.change}>
-            <ToggleButton/>
+         <HomeContainer value={value}>
+            <ToggleButton />
             <SocialMedia value={value}>
                <a
                   href="https://github.com/DanielJBailey"
