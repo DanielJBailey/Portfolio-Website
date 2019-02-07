@@ -190,7 +190,7 @@ const Name = styled.h1`
    @media(max-width: 325px) {
       font-size: 50px;
    }
-   @media(max-height: 325px) and (orientation: landscape) {
+   @media(max-height: 425px) and (orientation: landscape) {
       font-size: 50px;
    }
 `;
@@ -216,7 +216,7 @@ const Title = styled.p`
    @media(max-width: 325px) {
       font-size: 14px;
    }
-   @media(max-height: 325px) and (orientation: landscape) {
+   @media(max-height: 425px) and (orientation: landscape) {
       font-size: 14px;
    }
 `;
@@ -244,7 +244,7 @@ const Location = styled.div`
    @media(max-width: 325px) {
       font-size: 14px;
    }
-   @media(max-height: 325px) and (orientation: landscape) {
+   @media(max-height: 425px) and (orientation: landscape) {
       font-size: 14px;
    }
 `;
