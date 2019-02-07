@@ -150,9 +150,15 @@ const SocialMedia = styled.ul`
       @media(max-width: 425px) {
          height: 15px;  
       }
+      @media(max-height: 325px) and (orientation: landscape) {
+         height: 15px; 
+      }
    }
    @media(max-width: 425px) {
       margin-left: 1em;
+   }
+   @media(max-height: 325px) and (orientation: landscape) {
+      margin-left: 1em; 
    }
 `;
 
@@ -184,6 +190,9 @@ const Name = styled.h1`
    @media(max-width: 325px) {
       font-size: 50px;
    }
+   @media(max-height: 325px) and (orientation: landscape) {
+      font-size: 50px;
+   }
 `;
 
 const Title = styled.p`
@@ -205,6 +214,9 @@ const Title = styled.p`
    margin: 5px 0;
    font-family: "Sarabun", sans-serif;
    @media(max-width: 325px) {
+      font-size: 14px;
+   }
+   @media(max-height: 325px) and (orientation: landscape) {
       font-size: 14px;
    }
 `;
@@ -230,6 +242,9 @@ const Location = styled.div`
       margin-left: 5px;
    }
    @media(max-width: 325px) {
+      font-size: 14px;
+   }
+   @media(max-height: 325px) and (orientation: landscape) {
       font-size: 14px;
    }
 `;
@@ -272,6 +287,9 @@ const HomeContainer = styled.div`
       } else return light.background;
    }};
    @media(max-width: 425px) {
+      padding: 1em;
+   }
+   @media(max-height: 325px) and (orientation: landscape) {
       padding: 1em;
    }
 `;

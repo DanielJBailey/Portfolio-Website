@@ -54,6 +54,10 @@ const ToggleContainer = styled.div`
       margin: 1em;
       width: 75px;
    }
+   @media(max-height: 325px) and (orientation: landscape) {
+      margin: 1em;
+      width: 75px;
+   }
 `;
 
 const ToggleSwitch = styled.div`
@@ -77,6 +81,10 @@ const ToggleSwitch = styled.div`
    }};
    transition: margin 700ms;
    @media(max-width: 425px) {
+      width: 25px;
+      height: 25px;
+   }
+   @media(max-height: 325px) and (orientation: landscape) {
       width: 25px;
       height: 25px;
    }
