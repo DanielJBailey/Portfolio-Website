@@ -1,14 +1,13 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Fade from "react-reveal/Fade";
 import { ThemeConsumer } from "../../providers/ThemeProvider";
-import ToggleButton from './ToggleButton';
+import ToggleButton from "./ToggleButton";
 
 const Home = () => (
    <ThemeConsumer>
       {value => (
          <HomeContainer value={value}>
-            <ToggleButton />
+            
             <SocialMedia value={value}>
                <a
                   href="https://github.com/DanielJBailey"
@@ -82,7 +81,7 @@ const Home = () => (
                   </Icon>
                </a>
             </SocialMedia>
-            <Fade left>
+            <ToggleButton />
                <Title value={value}>Software Engineer @ Dev Point Labs</Title>
                <Name value={value}>Daniel Bailey</Name>
                <Location value={value}>
@@ -95,7 +94,7 @@ const Home = () => (
                      <path d="M635.73 406.91l-194.04-297.6c-11.57-17.75-39.8-17.75-51.37 0l-32.84 50.37 67.68 105.68c2.38 3.72 1.3 8.67-2.42 11.05l-13.46 8.62c-3.72 2.38-8.67 1.3-11.05-2.42l-59.9-93.54-70.81-110.55c-12.4-19.36-42.64-19.36-55.04 0L4.58 403.18C-7.99 422.81 6.81 448 30.92 448h580.22c22.5 0 36.32-23.09 24.59-41.09z" />
                   </SVG>
                </Location>
-            </Fade>
+
          </HomeContainer>
       )}
    </ThemeConsumer>
@@ -110,15 +109,6 @@ const fadeIn = keyframes`
       }
 `;
 
-const SlideDown = keyframes`
-  from {
-    margin-top: -220px;
-  }
-  to {
-    margin-top: 0;
-  }
-`;
-
 const SocialMedia = styled.ul`
    display: flex;
    flex-direction: column;
@@ -127,13 +117,18 @@ const SocialMedia = styled.ul`
    top: 0;
    left: 0;
    margin-left: 2em;
-   animation: ${SlideDown} 0.5s ease-in-out;
 
    a {
       width: 35px;
       height: 35px;
       padding: 5px;
       margin-top: 5px;
+      @media(max-width: 425px) {
+         width: 25px;
+         height: 25px;
+         padding: 0;
+         margin-top: 7px;
+      }
    }
 
    &:before {
@@ -152,6 +147,12 @@ const SocialMedia = styled.ul`
          } else return light.fontColor;
       }};
       width: 2px;
+      @media(max-width: 425px) {
+         height: 15px;  
+      }
+   }
+   @media(max-width: 425px) {
+      margin-left: 1em;
    }
 `;
 
@@ -160,7 +161,7 @@ const Icon = styled.i`
 `;
 
 const Name = styled.h1`
-   font-size: 65px;
+   font-size: 100px;
    transition: 0.75s;
    font-family: "Staatliches", -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -177,7 +178,10 @@ const Name = styled.h1`
       } else return light.fontColor;
    }};
    line-height: 1;
-   @media (max-width: 400px) {
+   @media(max-width: 425px) {
+      font-size: 60px;
+   }
+   @media(max-width: 325px) {
       font-size: 50px;
    }
 `;
@@ -200,7 +204,7 @@ const Title = styled.p`
    }};
    margin: 5px 0;
    font-family: "Sarabun", sans-serif;
-   @media (max-width: 325px) {
+   @media(max-width: 325px) {
       font-size: 14px;
    }
 `;
@@ -224,6 +228,9 @@ const Location = styled.div`
       height: 25px;
       width: 25px;
       margin-left: 5px;
+   }
+   @media(max-width: 325px) {
+      font-size: 14px;
    }
 `;
 
@@ -264,7 +271,7 @@ const HomeContainer = styled.div`
          return dark.background;
       } else return light.background;
    }};
-   @media (max-width: 325px) {
+   @media(max-width: 425px) {
       padding: 1em;
    }
 `;

@@ -50,6 +50,10 @@ const ToggleContainer = styled.div`
    padding: 2.5px;
    box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.1);
    transition: 700ms;
+   @media(max-width: 425px) {
+      margin: 1em;
+      width: 75px;
+   }
 `;
 
 const ToggleSwitch = styled.div`
@@ -72,6 +76,10 @@ const ToggleSwitch = styled.div`
       } else return "none";
    }};
    transition: margin 700ms;
+   @media(max-width: 425px) {
+      width: 25px;
+      height: 25px;
+   }
 `;
 
 const SVG = styled.svg`

@@ -453,6 +453,9 @@ const ProjectImages = styled.div`
    display: grid;
    grid-template-columns: 1fr 1fr;
    grid-gap: 10px;
+   @media(max-width: 425px) {
+      grid-template-columns: 1fr;
+   }
 `;
 
 const Img = styled.img`
