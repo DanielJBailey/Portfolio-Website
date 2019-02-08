@@ -41,28 +41,24 @@ const ToggleContainer = styled.div`
       }
       return "#eee";
    }};
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   margin: 2em;
+   position: relative;
+   margin-top: 10px;
    border-radius: 35px;
    cursor: pointer;
    padding: 2.5px;
    box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.1);
    transition: 700ms;
    @media(max-width: 425px) {
-      margin: 1em;
       width: 75px;
    }
    @media(max-height: 325px) and (orientation: landscape) {
-      margin: 1em;
       width: 75px;
    }
 `;
 
 const ToggleSwitch = styled.div`
-   width: 35px;
-   height: 35px;
+   width: 30px;
+   height: 30px;
    border-radius: 50%;
    background-color: transparent;
    display: flex;

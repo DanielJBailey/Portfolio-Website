@@ -7,7 +7,6 @@ const Home = () => (
    <ThemeConsumer>
       {value => (
          <HomeContainer value={value}>
-            
             <SocialMedia value={value}>
                <a
                   href="https://github.com/DanielJBailey"
@@ -81,9 +80,11 @@ const Home = () => (
                   </Icon>
                </a>
             </SocialMedia>
-            <ToggleButton />
+            <InfoWrapper>
                <Title value={value}>Software Engineer @ Dev Point Labs</Title>
+               <hr />
                <Name value={value}>Daniel Bailey</Name>
+               <hr />
                <Location value={value}>
                   Salt Lake City, UT
                   <SVG
@@ -94,11 +95,29 @@ const Home = () => (
                      <path d="M635.73 406.91l-194.04-297.6c-11.57-17.75-39.8-17.75-51.37 0l-32.84 50.37 67.68 105.68c2.38 3.72 1.3 8.67-2.42 11.05l-13.46 8.62c-3.72 2.38-8.67 1.3-11.05-2.42l-59.9-93.54-70.81-110.55c-12.4-19.36-42.64-19.36-55.04 0L4.58 403.18C-7.99 422.81 6.81 448 30.92 448h580.22c22.5 0 36.32-23.09 24.59-41.09z" />
                   </SVG>
                </Location>
-
+               <ToggleButton />
+            </InfoWrapper>
          </HomeContainer>
       )}
    </ThemeConsumer>
 );
+
+const InfoWrapper = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-end;
+   border-right: 2px solid #ccc;
+   padding-right: 1em;
+
+   hr {
+      width: 100%;
+      height: 2px;
+      background-color: #ccc;
+      border: none;
+      margin: 5px 0;
+   }
+`;
 
 const fadeIn = keyframes`
     0% {
@@ -123,15 +142,15 @@ const SocialMedia = styled.ul`
       height: 35px;
       padding: 5px;
       margin-top: 5px;
-      @media(max-width: 425px) {
+      @media (max-width: 425px) {
          width: 25px;
          height: 25px;
          padding: 0;
          margin-top: 7px;
       }
-      @media(min-height: 700px) and (orientation: portrait) {
+      @media (min-height: 700px) and (orientation: portrait) {
          margin-top: 5px;
-         padding: 5px; 
+         padding: 5px;
          width: 35px;
          height: 35px;
       }
@@ -153,21 +172,21 @@ const SocialMedia = styled.ul`
          } else return light.fontColor;
       }};
       width: 2px;
-      @media(max-width: 425px) {
-         height: 15px;  
+      @media (max-width: 425px) {
+         height: 15px;
       }
-      @media(max-height: 325px) and (orientation: landscape) {
-         height: 15px; 
+      @media (max-height: 325px) and (orientation: landscape) {
+         height: 15px;
       }
-      @media(min-height: 500px) and (orientation: portrait) {
+      @media (min-height: 500px) and (orientation: portrait) {
          height: 32px;
       }
    }
-   @media(max-width: 425px) {
+   @media (max-width: 425px) {
       margin-left: 1em;
    }
-   @media(max-height: 325px) and (orientation: landscape) {
-      margin-left: 1em; 
+   @media (max-height: 325px) and (orientation: landscape) {
+      margin-left: 1em;
    }
 `;
 
@@ -193,13 +212,13 @@ const Name = styled.h1`
       } else return light.fontColor;
    }};
    line-height: 1;
-   @media(max-width: 425px) {
+   @media (max-width: 425px) {
       font-size: 60px;
    }
-   @media(max-width: 325px) {
+   @media (max-width: 325px) {
       font-size: 50px;
    }
-   @media(max-height: 425px) and (orientation: landscape) {
+   @media (max-height: 425px) and (orientation: landscape) {
       font-size: 50px;
    }
 `;
@@ -207,6 +226,7 @@ const Name = styled.h1`
 const Title = styled.p`
    font-size: 16px;
    line-height: 1;
+   padding-top: 40px;
    display: flex;
    align-items: center;
    transition: 0.75s;
@@ -222,10 +242,10 @@ const Title = styled.p`
    }};
    margin: 5px 0;
    font-family: "Sarabun", sans-serif;
-   @media(max-width: 325px) {
+   @media (max-width: 325px) {
       font-size: 14px;
    }
-   @media(max-height: 425px) and (orientation: landscape) {
+   @media (max-height: 425px) and (orientation: landscape) {
       font-size: 14px;
    }
 `;
@@ -250,10 +270,10 @@ const Location = styled.div`
       width: 25px;
       margin-left: 5px;
    }
-   @media(max-width: 325px) {
+   @media (max-width: 325px) {
       font-size: 14px;
    }
-   @media(max-height: 425px) and (orientation: landscape) {
+   @media (max-height: 425px) and (orientation: landscape) {
       font-size: 14px;
    }
 `;
@@ -295,10 +315,10 @@ const HomeContainer = styled.div`
          return dark.background;
       } else return light.background;
    }};
-   @media(max-width: 425px) {
+   @media (max-width: 425px) {
       padding: 1em;
    }
-   @media(max-height: 325px) and (orientation: landscape) {
+   @media (max-height: 325px) and (orientation: landscape) {
       padding: 1em;
    }
 `;
