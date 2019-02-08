@@ -129,6 +129,12 @@ const SocialMedia = styled.ul`
          padding: 0;
          margin-top: 7px;
       }
+      @media(min-height: 700px) and (orientation: portrait) {
+         margin-top: 5px;
+         padding: 5px; 
+         width: 35px;
+         height: 35px;
+      }
    }
 
    &:before {
@@ -152,6 +158,9 @@ const SocialMedia = styled.ul`
       }
       @media(max-height: 325px) and (orientation: landscape) {
          height: 15px; 
+      }
+      @media(min-height: 500px) and (orientation: portrait) {
+         height: 32px;
       }
    }
    @media(max-width: 425px) {
