@@ -81,7 +81,7 @@ const Home = () => (
                </a>
             </SocialMedia>
             <InfoWrapper>
-               <Title value={value}>Software Engineer @ Dev Point Labs</Title>
+               <Title value={value}>Software Engineer @ Verisys</Title>
                <hr />
                <Name value={value}>Daniel Bailey</Name>
                <hr />

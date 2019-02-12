@@ -24,8 +24,7 @@ const About = () => {
                         challenging career in software development. I was
                         honored to receive the Opportunity in Tech Scholarship
                         for Dev Point Labs, located in the heart of Salt Lake
-                        City, UT. I am currently a student at Dev Point Labs and
-                        will graduate from the University of Utah partnered
+                        City, UT. I am currently a software engineer at Verisys, after graduating from Dev Point Labs, a University of Utah partnered
                         program in February of 2019.
                      </Bio>
                      <Bio>

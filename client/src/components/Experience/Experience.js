@@ -32,17 +32,24 @@ class Experience extends Component {
                               index={companyIndex}
                               value={value}
                            >
-                              Dev Point Labs
+                              Verisys
                            </Company>
                            <Company
                               onClick={() => this.updateCompanyIndex(1)}
                               index={companyIndex}
                               value={value}
                            >
-                              Tech Birmingham
+                              Dev Point Labs
                            </Company>
                            <Company
                               onClick={() => this.updateCompanyIndex(2)}
+                              index={companyIndex}
+                              value={value}
+                           >
+                              Tech Birmingham
+                           </Company>
+                           <Company
+                              onClick={() => this.updateCompanyIndex(3)}
                               index={companyIndex}
                               value={value}
                            >
@@ -54,6 +61,23 @@ class Experience extends Component {
                         </ExperienceIndicator>
                         <PositionsContainer>
                            {companyIndex === 0 ? (
+                              <Position>
+                                 <CompanyName>Verisys Corporation</CompanyName>
+                                 <Title>Software Engineer</Title>
+                                 <DatesEmployed value={value}>
+                                    Salt Lake City, UT (Feb 2019 - Current)
+                                 </DatesEmployed>
+                                 <TaskList>
+                                    <Task value={value}>
+                                       Working with technology such as Ruby on Rails, React, and SQL to help my team convert an existing code base into a modern and more maintainable tech stack.
+                                    </Task>
+                                    <Task value={value}>
+                                       Learning testing frameworks such as Jest, RSpec, and Cypress to test existing and newly developed code bases. 
+                                    </Task>
+                                 </TaskList>
+                              </Position>
+                           ) : null}
+                           {companyIndex === 1 ? (
                               <Position>
                                  <CompanyName>Dev Point Labs</CompanyName>
                                  <Title>Software Engineer</Title>
@@ -90,7 +114,7 @@ class Experience extends Component {
                                  </TaskList>
                               </Position>
                            ) : null}
-                           {companyIndex === 1 ? (
+                           {companyIndex === 2 ? (
                               <Position>
                                  <CompanyName>Tech Birmingham</CompanyName>
                                  <Title>Assistant Instructor</Title>
@@ -111,7 +135,7 @@ class Experience extends Component {
                                  </TaskList>
                               </Position>
                            ) : null}
-                           {companyIndex === 2 ? (
+                           {companyIndex === 3 ? (
                               <Position>
                                  <CompanyName>Regions Bank</CompanyName>
                                  <Title>
@@ -325,7 +349,7 @@ const Task = styled.li`
 
 const WorkContainer = styled.ul`
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
    list-style: none;
    margin-top: 25px;
    background-color: transparent;
@@ -406,14 +430,16 @@ const ExperienceBar = styled.div`
          case 0:
             return "0";
          case 1:
-            return "33.333%";
+            return "25%";
          case 2:
-            return "66.666%";
+            return "50%";
+         case 3:
+            return "75%";
          default:
             return "0";
       }
    }};
-   width: 33.333%;
+   width: 25%;
    &:after {
       display: block;
       content: "";
